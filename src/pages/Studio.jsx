@@ -177,7 +177,7 @@ export default function Studio() {
       const zip = zipSync(files, { level: 0 })
       const a = document.createElement('a')
       a.href = URL.createObjectURL(new Blob([zip], { type: 'application/zip' }))
-      a.download = `learnurdu-my-voice-${new Date().toISOString().slice(0, 10)}.zip`
+      a.download = `learnarabic-my-voice-${new Date().toISOString().slice(0, 10)}.zip`
       a.click()
       setBusy(`Saved ${Object.keys(files).length} clips (${fmtMB(zip.length)}).`)
     } catch {
@@ -237,7 +237,7 @@ export default function Studio() {
           <p className="text-xs font-extrabold uppercase tracking-wide text-ink/40">
             {Math.min(pos, list.length - 1) + 1} of {list.length} {cur.slow && ' · say it slowly'} {have.has(cur.key) && ' · ✓ recorded'}
           </p>
-          <p className="mt-2 font-urdu text-6xl font-bold leading-snug text-primary" lang="ur" dir="rtl">{cur.key}</p>
+          <p className="mt-2 font-arabic text-6xl font-bold leading-snug text-primary" lang="ur" dir="rtl">{cur.key}</p>
           {cur.say !== cur.key && <p className="text-xs text-ink/50">(say it as “{cur.say}”)</p>}
           {cur.roman && <p className="mt-1 text-lg font-extrabold text-ink">{cur.roman}</p>}
           {cur.en && <p className="text-ink/60">{cur.en}</p>}

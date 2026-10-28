@@ -5,10 +5,10 @@ import { exploreRegions } from '../../data/explore'
 const LABEL = { islamabad: { cx: 392, cy: 122 }, kp: { cx: 262, cy: 92 }, gb: { cx: 372, cy: 52 }, punjab: { cx: 300, cy: 215 } }
 const SHORT = { kp: 'Khyber Pakhtunkhwa', gb: 'Gilgit-Baltistan' }
 
-/** Pakistan's regions as a tappable map. Locked ones are grey; stamped ones carry a tick. Azad Kashmir (MAP.other) is plain grey. */
+/** The regions as a tappable map. Locked ones are grey; stamped ones carry a tick. MAP.other is drawn plain grey. */
 export default function BdMap({ selected, onSelect, unlocked, stamped, cities = [], activeCity, onCity, labels = true, tint = {} }) {
   return (
-    <svg viewBox={`0 0 ${MAP.width} ${MAP.height}`} className="mx-auto w-full max-w-sm drop-shadow-sm" role="group" aria-label="Map of Pakistan">
+    <svg viewBox={`0 0 ${MAP.width} ${MAP.height}`} className="mx-auto w-full max-w-sm drop-shadow-sm" role="group" aria-label="Map of the Arab world">
       {Object.entries(MAP.other ?? {}).map(([id, o]) => <path key={id} d={o.d} fill="#E4E4DE" stroke="#fff" strokeWidth="1.6" strokeLinejoin="round" />)}
       {exploreRegions.map((r) => {
         const geo = { ...MAP.divisions[r.id], ...(LABEL[r.id] ?? {}) }
@@ -35,7 +35,7 @@ export default function BdMap({ selected, onSelect, unlocked, stamped, cities = 
         const on = activeCity === c.id
         return (
           <g key={c.id} onClick={() => onCity?.(c)} className="cursor-pointer">
-            <circle cx={x} cy={y} r={on ? 9 : 6} fill={on ? '#F4A324' : '#fff'} stroke="#0F6E4F" strokeWidth="2.5" />
+            <circle cx={x} cy={y} r={on ? 9 : 6} fill={on ? '#F4A324' : '#fff'} stroke="#24539A" strokeWidth="2.5" />
             <text x={x} y={y - 12} textAnchor="middle" fontSize="11" fontWeight="800" fill="#2D2D2D" stroke="#fff" strokeWidth="3" paintOrder="stroke" style={{ pointerEvents: 'none' }}>
               {c.name}
             </text>

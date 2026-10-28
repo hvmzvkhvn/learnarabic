@@ -1,8 +1,8 @@
 // Works out how to write a glyph from the glyph itself: thin it to a one-pixel centreline, break that into
-// pen strokes (joining through junctions where the line carries straight on), and order them the Urdu way:
+// pen strokes (joining through junctions where the line carries straight on), and order them the Arabic way:
 // right to left and top to bottom, the letter's body first, then the smaller strokes (kashish, marks) right to left.
-// (Learn Bangla also detects the মাত্রা headline; Urdu has none, so that step is switched off with HEADLINE.)
-// Dots are too small to survive thinning and are not part of the guide. The result is a *proposal* — /review/strokes lets a Urdu speaker correct
+// (Learn Bangla also detects the মাত্রা headline; Arabic has none, so that step is switched off with HEADLINE.)
+// Dots are too small to survive thinning and are not part of the guide. The result is a *proposal* — /review/strokes lets an Arabic speaker correct
 // the order and direction, and the corrections are kept in src/data/strokeFixes.js.
 import { FONT, drawText, fitFont } from './trace'
 

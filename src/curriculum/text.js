@@ -1,8 +1,8 @@
-// Marks that attach to the previous letter: zabar, zer, pesh, tanween, shadd, jazm, hamza above/below, khari zabar
-// (U+064B–U+065F, U+0670), and do-chashmi he (ھ), which makes aspirates like بھ and پھ one sound.
-const isMark = (cp) => (cp >= 0x64b && cp <= 0x65f) || cp === 0x670 || cp === 0x6be
+// Marks that attach to the previous letter: fatha, kasra, damma, tanwin, shadda, sukun, hamza above/below and the
+// dagger alif (U+064B–U+065F, U+0670).
+const isMark = (cp) => (cp >= 0x64b && cp <= 0x65f) || cp === 0x670
 
-/** Split an Urdu word into tile-sized clusters (a letter + its marks; aspirates like بھ stay together). */
+/** Split an Arabic word into tile-sized clusters (a letter + its vowel marks). */
 export function splitClusters(word) {
   const units = []
   for (const ch of Array.from(word)) {
@@ -12,8 +12,8 @@ export function splitClusters(word) {
   return units
 }
 
-/** True when the text contains Urdu (Arabic-script) letters. */
-export const hasUrdu = (s) => /[\u0600-\u06FF]/.test(s ?? '')
+/** True when the text contains Arabic-script letters. */
+export const hasArabic = (s) => /[\u0600-\u06FF]/.test(s ?? '')
 
 export function shuffle(arr) {
   const a = [...arr]

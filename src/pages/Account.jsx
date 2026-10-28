@@ -146,7 +146,7 @@ function Manage({ sync }) {
     const data = { exported: new Date().toISOString(), email: sync.email, learners: await listLearners() }
     const a = document.createElement('a')
     a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }))
-    a.download = 'learn-urdu-my-data.json'
+    a.download = 'learn-arabic-my-data.json'
     a.click()
   }
   const out = async () => {

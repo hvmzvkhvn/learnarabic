@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { speak, speakEnglish, hasAudio, useAudioReady, canSpeakEnglish } from '../audio/audio'
 
 /**
- * 🔊 button. `text` is Urdu (plays the recording) unless `english` is set.
+ * 🔊 button. `text` is Arabic (plays the recording) unless `english` is set.
  * `inline` renders a span so it can sit inside another button without nesting buttons.
  */
 export default function Speaker({ text, english = false, inline = false, size = 'md', label = 'Listen', className = '' }) {

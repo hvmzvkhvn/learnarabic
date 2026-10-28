@@ -33,7 +33,7 @@ export default function Practice() {
         <p className="text-7xl">{feat.garden ? '🧠' : '🔁'}</p>
         <h1 className="mt-3 text-3xl font-extrabold text-primary">{result.correct} of {result.total} first time</h1>
         <p className="mt-2 text-ink/60">The ones you missed will come back soon — that is how they stick.</p>
-        {feat.playful && <p className="mt-3 text-lg font-extrabold text-primary">⭐ Sitara says: “Great remembering!”</p>}
+        {feat.playful && <p className="mt-3 text-lg font-extrabold text-primary">⭐ Najma says: “Great remembering!”</p>}
         <p className="mt-4 text-2xl font-extrabold text-success">+{result.xp} XP</p>
         <div className="mx-auto mt-6 flex max-w-xs flex-col gap-3">
           <Link to="/" className="btn-primary">Back home</Link>

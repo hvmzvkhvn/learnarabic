@@ -65,7 +65,7 @@ export default function GeoGame({ onFinish }) {
           <div className="mb-2 flex items-center justify-center gap-3 text-center">
             <div>
               <p className="text-sm font-bold text-ink/60">Tap this region on the map</p>
-              <p className="font-urdu text-4xl font-extrabold text-primary">{q.region.bn}</p>
+              <p className="font-arabic text-4xl font-extrabold text-primary">{q.region.bn}</p>
               <p className="text-sm text-ink/50">{q.region.name}</p>
             </div>
             <Speaker text={q.region.bn} size="lg" />
@@ -77,7 +77,7 @@ export default function GeoGame({ onFinish }) {
         <Choice title="Where am I?" sub="Listen, then pick the region." options={q.options} answer={answer} bad={bad} solved={solved} region={q.region}>
           <div className="flex items-center justify-center gap-3 rounded-3xl bg-white p-4 shadow-sm">
             <span className="text-5xl">{q.line.emoji}</span>
-            <p className="font-urdu text-2xl font-bold text-primary">{q.line.bn}</p>
+            <p className="font-arabic text-2xl font-bold text-primary">{q.line.bn}</p>
             <Speaker text={q.line.bn} size="lg" />
           </div>
           {solved && <p className="mt-2 text-center text-sm text-ink/60">{q.line.en}</p>}
@@ -88,7 +88,7 @@ export default function GeoGame({ onFinish }) {
           <div className="flex items-center justify-center gap-3 rounded-3xl bg-white p-4 shadow-sm">
             <span className="text-5xl">{q.city.emoji}</span>
             <div className="text-center">
-              <p className="font-urdu text-4xl font-extrabold text-primary">{q.city.bn}</p>
+              <p className="font-arabic text-4xl font-extrabold text-primary">{q.city.bn}</p>
               <p className="text-sm text-ink/60">{q.city.name}</p>
             </div>
             <Speaker text={q.city.bn} size="lg" />
@@ -118,7 +118,7 @@ function Choice({ title, sub, options, answer, bad, solved, region, children }) 
             }`}
           >
             <span className="block text-2xl">{r.emoji}</span>
-            <span className="block font-urdu text-xl font-extrabold text-ink">{r.bn}</span>
+            <span className="block font-arabic text-xl font-extrabold text-ink">{r.bn}</span>
             <span className="block text-xs font-bold text-ink/50">{r.name}</span>
           </button>
         ))}

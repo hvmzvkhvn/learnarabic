@@ -1,7 +1,7 @@
 // Tracing: draw a target glyph, measure how well a drawing covers it, and work out a guided stroke order.
 // Everything here works on small raster "grids" (1 = ink) so it is quick and font-independent.
 
-export const FONT = '"Noto Nastaliq Urdu", "Nunito", sans-serif'
+export const FONT = '"Noto Naskh Arabic", "Nunito", sans-serif'
 
 export async function ensureFont(text) {
   try {

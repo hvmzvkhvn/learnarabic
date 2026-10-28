@@ -1,5 +1,6 @@
-// Sentences: { bn, roman, en }   (`bn` = the Urdu text). Standard Pakistani Urdu.
-// Urdu verbs change with the speaker's gender: a boy says جاتا ہوں, a girl says جاتی ہوں. Where it matters the English says who is speaking.
+// Sentences: { bn, roman, en }   (`bn` = the Arabic text). Modern Standard Arabic, fully vowelled.
+// Arabic changes words for a boy or a girl — both the speaker (أَنَا سَعِيدٌ / أَنَا سَعِيدَةٌ) and the person spoken to
+// (كَيْفَ حَالُكَ؟ / كَيْفَ حَالُكِ؟). Where it matters the English says who is speaking or who is spoken to.
 const S = (bn, roman, en) => ({ bn, roman, en })
 
 export const sentenceGroups = [
@@ -8,16 +9,16 @@ export const sentenceGroups = [
     title: 'Introduce Yourself',
     emoji: '🙋',
     sentences: [
-      S('میرا نام علی ہے۔', 'mera naam Ali hai.', 'My name is Ali.'),
-      S('تمہارا نام کیا ہے؟', 'tumhaara naam kya hai?', 'What is your name?'),
-      S('میں ٹھیک ہوں۔', 'main ṭheek hoon.', 'I am fine.'),
-      S('تم کیسے ہو؟', 'tum kaise ho?', 'How are you?'),
-      S('آپ کیسے ہیں؟', 'aap kaise hain?', 'How are you? (respectful)'),
-      S('تمہاری عمر کتنی ہے؟', 'tumhaari umar kitni hai?', 'How old are you?'),
-      S('میں دس سال کا ہوں۔', 'main das saal ka hoon.', 'I am ten years old. (a boy speaking)'),
-      S('میں دس سال کی ہوں۔', 'main das saal ki hoon.', 'I am ten years old. (a girl speaking)'),
-      S('تم کہاں رہتے ہو؟', 'tum kahaan rehte ho?', 'Where do you live?'),
-      S('میں لاہور میں رہتا ہوں۔', 'main Lahore mein rehta hoon.', 'I live in Lahore. (a boy speaking)'),
+      S('اِسْمِي يُوسُفُ.', 'ismii yuusuf.', 'My name is Yusuf.'),
+      S('مَا اسْمُكَ؟', 'ma smuk(a)?', 'What is your name? (to a boy)'),
+      S('مَا اسْمُكِ؟', 'ma smuk(i)?', 'What is your name? (to a girl)'),
+      S('كَيْفَ حَالُكَ؟', 'kayfa ḥaaluk(a)?', 'How are you? (to a boy or man)'),
+      S('كَيْفَ حَالُكِ؟', 'kayfa ḥaaluk(i)?', 'How are you? (to a girl or woman)'),
+      S('أَنَا بِخَيْرٍ، وَالْحَمْدُ لِلّٰهِ.', 'ana bi-khayr, wa-l-ḥamdu lillaah.', 'I am fine, praise be to God.'),
+      S('كَمْ عُمْرُكَ؟', 'kam ʿumruk(a)?', 'How old are you? (to a boy)'),
+      S('عُمْرِي عَشْرُ سَنَوَاتٍ.', 'ʿumrii ʿashru sanawaat.', 'I am ten years old.'),
+      S('أَيْنَ تَسْكُنُ؟', 'ayna taskun(u)?', 'Where do you live? (to a boy)'),
+      S('أَسْكُنُ فِي الْقَاهِرَةِ.', 'askunu fi l-qaahira.', 'I live in Cairo.'),
     ],
   },
   {
@@ -25,15 +26,15 @@ export const sentenceGroups = [
     title: 'This and That',
     emoji: '👉',
     sentences: [
-      S('یہ کیا ہے؟', 'yeh kya hai?', 'What is this?'),
-      S('یہ کتاب ہے۔', 'yeh kitaab hai.', 'This is a book.'),
-      S('وہ درخت ہے۔', 'woh darakht hai.', 'That is a tree.'),
-      S('یہ میری کتاب ہے۔', 'yeh meri kitaab hai.', 'This is my book.'),
-      S('وہ تمہارا بستہ ہے۔', 'woh tumhaara basta hai.', 'That is your school bag.'),
-      S('یہ میری امی ہیں۔', 'yeh meri ammi hain.', 'This is my mum.'),
-      S('یہ میرے ابو ہیں۔', 'yeh mere abbu hain.', 'This is my dad.'),
-      S('وہ میرا بھائی ہے۔', 'woh mera bhaai hai.', 'He is my brother.'),
-      S('وہ میری بہن ہے۔', 'woh meri behan hai.', 'She is my sister.'),
+      S('مَا هٰذَا؟', 'maa haadhaa?', 'What is this?'),
+      S('هٰذَا كِتَابٌ.', 'haadhaa kitaab.', 'This is a book.'),
+      S('هٰذِهِ شَجَرَةٌ.', 'haadhihi shajara.', 'This is a tree.'),
+      S('هٰذَا كِتَابِي.', 'haadhaa kitaabii.', 'This is my book.'),
+      S('هٰذِهِ حَقِيبَتُكَ.', 'haadhihi ḥaqiibatuk(a).', 'This is your bag. (to a boy)'),
+      S('هٰذِهِ أُمِّي.', 'haadhihi ummii.', 'This is my mum.'),
+      S('هٰذَا أَبِي.', 'haadhaa abii.', 'This is my dad.'),
+      S('هُوَ أَخِي.', 'huwa akhii.', 'He is my brother.'),
+      S('هِيَ أُخْتِي.', 'hiya ukhtii.', 'She is my sister.'),
     ],
   },
   {
@@ -41,16 +42,16 @@ export const sentenceGroups = [
     title: 'Every Day',
     emoji: '☀️',
     sentences: [
-      S('میں اسکول جاتا ہوں۔', 'main school jaata hoon.', 'I go to school. (a boy speaking)'),
-      S('میں اسکول جاتی ہوں۔', 'main school jaati hoon.', 'I go to school. (a girl speaking)'),
-      S('میں روٹی کھاتا ہوں۔', 'main roṭi khaata hoon.', 'I eat roti. (a boy speaking)'),
-      S('میں کتاب پڑھتی ہوں۔', 'main kitaab paṛhti hoon.', 'I read a book. (a girl speaking)'),
-      S('میں پانی پیتا ہوں۔', 'main paani peeta hoon.', 'I drink water. (a boy speaking)'),
-      S('مجھے کھیلنا پسند ہے۔', 'mujhe khelna pasand hai.', 'I like to play.'),
-      S('مجھے بھوک لگی ہے۔', 'mujhe bhook lagi hai.', 'I am hungry.'),
-      S('مجھے پیاس لگی ہے۔', 'mujhe pyaas lagi hai.', 'I am thirsty.'),
-      S('مجھے نیند آ رہی ہے۔', 'mujhe neend aa rahi hai.', 'I am sleepy.'),
-      S('مجھے تھوڑا پانی دیں۔', 'mujhe thoṛa paani dein.', 'Please give me a little water.'),
+      S('أَذْهَبُ إِلَى الْمَدْرَسَةِ.', 'adhhabu ila l-madrasa.', 'I go to school.'),
+      S('آكُلُ الْخُبْزَ.', 'aakulu l-khubz.', 'I eat bread.'),
+      S('أَقْرَأُ كِتَابًا.', 'aqraʾu kitaaban.', 'I read a book.'),
+      S('أَشْرَبُ الْمَاءَ.', 'ashrabu l-maaʾ.', 'I drink water.'),
+      S('أُحِبُّ اللَّعِبَ.', 'uḥibbu l-laʿib.', 'I love playing.'),
+      S('أَنَا جَائِعٌ.', 'ana jaaʾiʿ.', 'I am hungry. (a boy speaking)'),
+      S('أَنَا جَائِعَةٌ.', 'ana jaaʾiʿa.', 'I am hungry. (a girl speaking)'),
+      S('أَنَا عَطْشَانُ.', 'ana ʿaṭshaan.', 'I am thirsty. (a boy speaking)'),
+      S('أَنَا نَعْسَانَةٌ.', 'ana naʿsaana.', 'I am sleepy. (a girl speaking)'),
+      S('أَعْطِنِي قَلِيلًا مِنَ الْمَاءِ، مِنْ فَضْلِكَ.', 'aʿṭinii qaliilan mina l-maaʾ, min faḍlik(a).', 'Please give me a little water. (to a boy or man)'),
     ],
   },
   {
@@ -58,37 +59,37 @@ export const sentenceGroups = [
     title: 'Describe the World',
     emoji: '🌍',
     sentences: [
-      S('آسمان نیلا ہے۔', 'aasmaan neela hai.', 'The sky is blue.'),
-      S('پتا ہرا ہے۔', 'patta hara hai.', 'The leaf is green.'),
-      S('ہاتھی بڑا ہے۔', 'haathi baṛa hai.', 'The elephant is big.'),
-      S('چوہا چھوٹا ہے۔', 'chooha chhoṭa hai.', 'The mouse is small.'),
-      S('چائے گرم ہے۔', 'chaaye garam hai.', 'The tea is hot.'),
-      S('آسمان پر چاند ہے۔', 'aasmaan par chaand hai.', 'There is a moon in the sky.'),
-      S('دریا میں مچھلیاں ہیں۔', 'darya mein machhliyaan hain.', 'There are fish in the river.'),
-      S('درخت پر پرندہ ہے۔', 'darakht par parinda hai.', 'There is a bird in the tree.'),
-      S('آج ہفتہ ہے۔', 'aaj hafta hai.', 'Today is Saturday.'),
-      S('آج میری سالگرہ ہے۔', 'aaj meri saalgirah hai.', 'Today is my birthday.'),
+      S('السَّمَاءُ زَرْقَاءُ.', 'as-samaaʾu zarqaaʾ.', 'The sky is blue.'),
+      S('الْوَرَقَةُ خَضْرَاءُ.', 'al-waraqatu khaḍraaʾ.', 'The leaf is green.'),
+      S('الْفِيلُ كَبِيرٌ.', 'al-fiilu kabiir.', 'The elephant is big.'),
+      S('الْفَأْرُ صَغِيرٌ.', 'al-faʾru ṣaghiir.', 'The mouse is small.'),
+      S('الشَّايُ حَارٌّ.', 'ash-shaayu ḥaarr.', 'The tea is hot.'),
+      S('الْقَمَرُ فِي السَّمَاءِ.', 'al-qamaru fi s-samaaʾ.', 'The moon is in the sky.'),
+      S('فِي النَّهْرِ سَمَكٌ.', 'fi n-nahri samak.', 'There are fish in the river.'),
+      S('عَلَى الشَّجَرَةِ عُصْفُورٌ.', 'ʿala sh-shajarati ʿuṣfuur.', 'There is a bird in the tree.'),
+      S('الْيَوْمَ الْجُمُعَةُ.', 'al-yawma l-jumuʿa.', 'Today is Friday.'),
+      S('الْيَوْمَ عِيدُ مِيلَادِي.', 'al-yawma ʿiidu miilaadii.', 'Today is my birthday.'),
     ],
   },
 ]
 
-// Present-tense patterns. forms = [میں form, تم form, وہ form], boys' / men's endings.
-// (Girls and women say -تی instead of -تا / -تے: میں کھاتی ہوں، تم کھاتی ہو، وہ کھاتی ہے.)
+// Present-tense patterns. forms = [أَنَا form, أَنْتَ form, هُوَ form]: the verb changes at the front (أَ- تَ- يَ-).
+// (For a girl or woman: أَنْتِ تَأْكُلِينَ، هِيَ تَأْكُلُ.)
 const V = (key, inf, infRoman, en, forms, romans, enForms) => ({ key, inf, infRoman, en, forms, romans, enForms })
 
 export const verbs = [
-  V('khaana', 'کھانا', 'khaana', 'eat', ['کھاتا ہوں', 'کھاتے ہو', 'کھاتا ہے'], ['khaata hoon', 'khaate ho', 'khaata hai'], ['eat', 'eat', 'eats']),
-  V('jaana', 'جانا', 'jaana', 'go', ['جاتا ہوں', 'جاتے ہو', 'جاتا ہے'], ['jaata hoon', 'jaate ho', 'jaata hai'], ['go', 'go', 'goes']),
-  V('karna', 'کرنا', 'karna', 'do', ['کرتا ہوں', 'کرتے ہو', 'کرتا ہے'], ['karta hoon', 'karte ho', 'karta hai'], ['do', 'do', 'does']),
-  V('parhna', 'پڑھنا', 'paṛhna', 'read', ['پڑھتا ہوں', 'پڑھتے ہو', 'پڑھتا ہے'], ['paṛhta hoon', 'paṛhte ho', 'paṛhta hai'], ['read', 'read', 'reads']),
-  V('likhna', 'لکھنا', 'likhna', 'write', ['لکھتا ہوں', 'لکھتے ہو', 'لکھتا ہے'], ['likhta hoon', 'likhte ho', 'likhta hai'], ['write', 'write', 'writes']),
-  V('dekhna', 'دیکھنا', 'dekhna', 'see', ['دیکھتا ہوں', 'دیکھتے ہو', 'دیکھتا ہے'], ['dekhta hoon', 'dekhte ho', 'dekhta hai'], ['see', 'see', 'sees']),
-  V('aana', 'آنا', 'aana', 'come', ['آتا ہوں', 'آتے ہو', 'آتا ہے'], ['aata hoon', 'aate ho', 'aata hai'], ['come', 'come', 'comes']),
-  V('khelna', 'کھیلنا', 'khelna', 'play', ['کھیلتا ہوں', 'کھیلتے ہو', 'کھیلتا ہے'], ['khelta hoon', 'khelte ho', 'khelta hai'], ['play', 'play', 'plays']),
+  V('akala', 'أَكَلَ', 'akala', 'eat', ['آكُلُ', 'تَأْكُلُ', 'يَأْكُلُ'], ['aakulu', 'taʾkulu', 'yaʾkulu'], ['eat', 'eat', 'eats']),
+  V('dhahaba', 'ذَهَبَ', 'dhahaba', 'go', ['أَذْهَبُ', 'تَذْهَبُ', 'يَذْهَبُ'], ['adhhabu', 'tadhhabu', 'yadhhabu'], ['go', 'go', 'goes']),
+  V('shariba', 'شَرِبَ', 'shariba', 'drink', ['أَشْرَبُ', 'تَشْرَبُ', 'يَشْرَبُ'], ['ashrabu', 'tashrabu', 'yashrabu'], ['drink', 'drink', 'drinks']),
+  V('qaraa', 'قَرَأَ', 'qaraʾa', 'read', ['أَقْرَأُ', 'تَقْرَأُ', 'يَقْرَأُ'], ['aqraʾu', 'taqraʾu', 'yaqraʾu'], ['read', 'read', 'reads']),
+  V('kataba', 'كَتَبَ', 'kataba', 'write', ['أَكْتُبُ', 'تَكْتُبُ', 'يَكْتُبُ'], ['aktubu', 'taktubu', 'yaktubu'], ['write', 'write', 'writes']),
+  V('laiba', 'لَعِبَ', 'laʿiba', 'play', ['أَلْعَبُ', 'تَلْعَبُ', 'يَلْعَبُ'], ['alʿabu', 'talʿabu', 'yalʿabu'], ['play', 'play', 'plays']),
+  V('naama', 'نَامَ', 'naama', 'sleep', ['أَنَامُ', 'تَنَامُ', 'يَنَامُ'], ['anaamu', 'tanaamu', 'yanaamu'], ['sleep', 'sleep', 'sleeps']),
+  V('samia', 'سَمِعَ', 'samiʿa', 'hear', ['أَسْمَعُ', 'تَسْمَعُ', 'يَسْمَعُ'], ['asmaʿu', 'tasmaʿu', 'yasmaʿu'], ['hear', 'hear', 'hears']),
 ]
 
 export const pronounForms = [
-  { bn: 'میں', roman: 'main', en: 'I' },
-  { bn: 'تم', roman: 'tum', en: 'You' },
-  { bn: 'وہ', roman: 'woh', en: 'He' },
+  { bn: 'أَنَا', roman: 'ana', en: 'I' },
+  { bn: 'أَنْتَ', roman: 'anta', en: 'You' },
+  { bn: 'هُوَ', roman: 'huwa', en: 'He' },
 ]

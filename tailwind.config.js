@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0F6E4F',
+        primary: '#24539A',
         secondary: '#F4A324',
         accent: '#FFD166',
         background: '#FFFDF7',
@@ -13,8 +13,8 @@ export default {
         error: '#E8624A',
       },
       fontFamily: {
-        sans: ['Nunito', '"Urdu Inline"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        urdu: ['Nunito', '"Noto Nastaliq Urdu"', 'serif'],
+        sans: ['Nunito', '"Arabic Inline"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        arabic: ['Nunito', '"Noto Naskh Arabic"', 'serif'],
       },
       keyframes: {
         shake: { '0%,100%': { transform: 'translateX(0)' }, '20%,60%': { transform: 'translateX(-6px)' }, '40%,80%': { transform: 'translateX(6px)' } },

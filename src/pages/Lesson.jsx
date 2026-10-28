@@ -155,7 +155,7 @@ function Player({ lesson, unit, track }) {
             You finished <b>{lesson.title}</b>.
             {result.stars < 3 && ' Try it again to earn more stars!'}
           </p>
-          {playful && <p className="mt-3 text-lg font-extrabold text-primary">⭐ Sitara says: “{result.stars === 3 ? 'Wonderful!' : result.stars === 2 ? 'Well done!' : 'Great try!'}”</p>}
+          {playful && <p className="mt-3 text-lg font-extrabold text-primary">⭐ Najma says: “{result.stars === 3 ? 'Wonderful!' : result.stars === 2 ? 'Well done!' : 'Great try!'}”</p>}
           {xpOn && (
             <div className="mx-auto mt-5 max-w-xs rounded-3xl bg-white p-4 text-left shadow-md">
               <div className="flex justify-between text-sm font-extrabold">
@@ -221,7 +221,7 @@ function Player({ lesson, unit, track }) {
                 <div key={r.who} className="card flex items-center gap-3 !p-3">
                   <span className="text-2xl">{r.emoji}</span>
                   <span className="flex-1 text-sm font-semibold text-ink/70">{r.who}</span>
-                  <span className="font-urdu text-xl font-extrabold text-primary">{r.say}</span>
+                  <span className="font-arabic text-xl font-extrabold text-primary">{r.say}</span>
                   <Speaker inline size="sm" text={r.say} />
                 </div>
               ))}

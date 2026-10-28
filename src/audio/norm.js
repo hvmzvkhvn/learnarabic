@@ -1,7 +1,7 @@
 // Shared by the app and scripts/generate-audio.mjs so both agree on what gets recorded.
 import { allLetters, aspirates } from '../data/alphabet'
 
-// A letter on its own is spoken by its name (ب → "بے"), the way the alphabet is recited.
+// A letter on its own is spoken by its name (ب → "بَاء"), the way the alphabet is recited.
 const SAY = Object.fromEntries([...allLetters, ...aspirates].map((l) => [l.letter, l.name]))
 
 /** Key used to look a piece of text up in the audio manifest. */

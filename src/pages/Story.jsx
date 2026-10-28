@@ -189,7 +189,7 @@ function Player({ story }) {
                 </div>
               )}
               <div className={`max-w-[82%] rounded-3xl px-4 py-3 shadow-sm ${m.kind === 'you' ? 'rounded-br-md bg-primary text-white' : 'rounded-bl-md bg-white'}`}>
-                <p className={`font-urdu text-xl font-bold leading-snug ${m.kind === 'you' ? 'text-white' : 'text-primary'}`}>{m.bn}</p>
+                <p className={`font-arabic text-xl font-bold leading-snug ${m.kind === 'you' ? 'text-white' : 'text-primary'}`}>{m.bn}</p>
                 <p className={`text-xs font-bold ${m.kind === 'you' ? 'text-white/80' : 'text-ink/60'}`}>{romanOn ? m.roman : null}</p>
                 {showEn && <p className={`text-xs ${m.kind === 'you' ? 'text-white/70' : 'text-ink/50'}`}>{m.en}</p>}
               </div>
@@ -229,7 +229,7 @@ function Player({ story }) {
                 {keyLines.map((n, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <div className="min-w-0 flex-1">
-                      <p className="font-urdu text-lg font-bold leading-snug text-primary">{n.bn}</p>
+                      <p className="font-arabic text-lg font-bold leading-snug text-primary">{n.bn}</p>
                       <p className="text-xs text-ink/50">
                         {romanOn && `${n.roman} · `}{n.en}
                       </p>
@@ -259,7 +259,7 @@ function Player({ story }) {
             {options.map((o, i) => (
               <div key={i} className="flex items-stretch gap-2">
                 <button type="button" onClick={() => choose(o, i)} className="flex-1 rounded-2xl border-4 border-primary/15 bg-white px-4 py-3 text-left shadow-sm transition active:scale-[0.98] hover:border-primary/50">
-                  <span className="block font-urdu text-lg font-bold leading-snug text-primary">{o.bn}</span>
+                  <span className="block font-arabic text-lg font-bold leading-snug text-primary">{o.bn}</span>
                   {romanOn && <span className="block text-xs font-bold text-ink/60">{o.roman}</span>}
                   {showEn && <span className="block text-xs text-ink/50">{o.en}</span>}
                 </button>

@@ -5,7 +5,7 @@ import { shuffle } from '../../curriculum/text'
 import { useGame } from '../../state/game'
 import { recordAnswer } from '../../state/srs'
 
-/** Hear a word, type it in Urdu. Six rounds. onFinish({ correct, total }) */
+/** Hear a word, type it in Arabic. Six rounds. onFinish({ correct, total }) */
 export default function TypeItGame({ pool, count = 6, onFinish }) {
   const { act } = useGame()
   const rounds = useMemo(() => shuffle(pool).map(typeExercise).filter(Boolean).slice(0, count), [pool, count])

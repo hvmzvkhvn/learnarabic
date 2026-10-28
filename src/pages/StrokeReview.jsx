@@ -7,8 +7,8 @@ import { APPROVED } from '../data/strokesApproved'
 import { FIXES } from '../data/strokeFixes'
 import StrokeDemo from '../components/lesson/StrokeDemo'
 
-const DIGITS = [...'۰۱۲۳۴۵۶۷۸۹']
-const COLORS = ['#0F6E4F', '#D9822B', '#7A4FB5', '#2E8B57', '#C2410C', '#2563EB', '#B83280', '#4D7C0F']
+const DIGITS = [...'٠١٢٣٤٥٦٧٨٩']
+const COLORS = ['#24539A', '#D9822B', '#7A4FB5', '#2E8B57', '#C2410C', '#2563EB', '#B83280', '#4D7C0F']
 const uniq = (a) => [...new Set(a)]
 
 export default function StrokeReview() {

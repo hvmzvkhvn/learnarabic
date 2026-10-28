@@ -7,7 +7,7 @@ export default function ChoiceQ({ ex, onSolved, onWrong }) {
   const [wrong, setWrong] = useState([])
   const [solved, setSolved] = useState(false)
 
-  // Listening practice: say the Urdu in the question as it appears.
+  // Listening practice: say the Arabic in the question as it appears.
   useEffect(() => {
     if (ex.stem.listen) speak(ex.stem.say)
     else if (ex.stem.bn && !ex.stem.noAudio) speak(ex.stem.bn)

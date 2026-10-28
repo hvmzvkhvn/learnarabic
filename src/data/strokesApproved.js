@@ -1,7 +1,7 @@
 // Guided stroke-order demos are generated from each glyph (see curriculum/trace.js) and are only shown to
-// learners once a Urdu speaker has checked them on the review page (/review/strokes).
+// learners once an Arabic speaker has checked them on the review page (/review/strokes).
 //
-// Nothing approved yet for Urdu.
+// Nothing approved yet for Arabic.
 // To approve: list individual glyphs in APPROVED (the review page copies the list for you), or set APPROVE_ALL.
 // Words are never listed one by one: set APPROVE_WORDS once the sample on the review page looks right.
 // Leave everything as it is and learners only get the (always-on) accuracy-scored tracing.

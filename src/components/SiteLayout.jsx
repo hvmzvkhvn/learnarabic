@@ -31,7 +31,7 @@ export default function SiteLayout() {
       <header className="mx-auto flex max-w-3xl items-center justify-between gap-2 px-5 py-4">
         <span className="flex items-center gap-2">
           <span className="text-3xl">⭐</span>
-          <span className="text-2xl font-extrabold text-primary">Learn Urdu</span>
+          <span className="text-2xl font-extrabold text-primary">Learn Arabic</span>
         </span>
         <span className="flex items-center gap-2">
           <RomanToggle />

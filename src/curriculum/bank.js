@@ -25,19 +25,19 @@ const letterItem = (l, section) =>
   add({ id: `letter:${l.letter}`, kind: 'letter', section, bn: l.letter, roman: l.roman, sound: l.sound, art: l.example.emoji, example: l.example })
 
 export const letterGroupIds = letterGroups.map((g) => ({ key: g.key, name: g.name, hint: g.hint, ids: g.letters.map((l) => letterItem(l, g.name)) }))
-export const aspirateIds = aspirates.map((l) => letterItem(l, 'Aspirated sounds'))
+export const aspirateIds = aspirates.map((l) => letterItem(l, 'Hamza & special shapes'))
 
 // ---- Vowel marks and long vowels (shown on ب) and practice syllables -------------
 export const signIds = vowelSigns.map((s) =>
-  add({ id: `sign:${s.sign}`, kind: 'sign', section: 'Vowel marks', bn: s.combined, roman: s.combinedRoman, signChar: s.sign, signRoman: s.roman, signName: s.name }),
+  add({ id: `sign:${s.sign}`, kind: 'sign', section: 'Vowel marks', bn: s.combined, roman: s.combinedRoman, signChar: s.sign, signRoman: s.roman, signSays: s.says, signName: s.name }),
 )
 
-const SYL_CONSONANTS = ['ت', 'ج', 'د', 'ر', 'س', 'ک', 'گ', 'ل', 'م', 'ن', 'پ', 'چ', 'ش', 'ہ']
+const SYL_CONSONANTS = ['ت', 'ج', 'د', 'ر', 'س', 'ك', 'ف', 'ل', 'م', 'ن', 'ق', 'ح', 'ش', 'ه']
 const soundOf = (letter) => bank.get(`letter:${letter}`).sound
 
 export const syllableIdsBySign = vowelSigns.map((s, i) =>
   [0, 1, 2, 3].map((j) => SYL_CONSONANTS[(i * 3 + j) % SYL_CONSONANTS.length]).map((c) =>
-    add({ id: `syl:${c}${s.sign}`, kind: 'syllable', section: 'Vowel marks', bn: c + s.sign, roman: soundOf(c) + s.roman }),
+    add({ id: `syl:${c}${s.sign}`, kind: 'syllable', section: 'Vowel marks', bn: s.make ? s.make(c) : c + s.sign, roman: s.rom ? s.rom(soundOf(c)) : soundOf(c) + s.roman }),
   ),
 )
 
@@ -92,7 +92,7 @@ verbs.forEach((v) => {
   )
 })
 
-// ---- Family unit: phrases, آپ/تم practice and conversations -------------------------------
+// ---- Family unit: phrases, أَنْتَ/أَنْتِ practice and conversations -------------------------------
 export { roster, unitLayout, ADDRESS_TIP }
 const AGES = { young: '5–7', older: '8–12' }
 
@@ -105,19 +105,19 @@ for (const track of ['young', 'older']) {
     }),
   )
 
-  // آپ / تم practice
+  // أَنْتَ / أَنْتِ practice
   let polite
   if (track === 'young') {
-    const apni = 'word:pronouns:آپ'
-    const tumi = 'word:pronouns:تم'
+    const anta = 'word:pronouns:أَنْتَ'
+    const anti = 'word:pronouns:أَنْتِ'
     polite = politeYoung.map((c) => ({
       title: c.title, stem: { art: c.art, text: c.who },
-      rightId: c.right === 'آپ' ? apni : tumi, wrongIds: [c.right === 'آپ' ? tumi : apni],
+      rightId: c.right === 'أَنْتَ' ? anta : anti, wrongIds: [c.right === 'أَنْتَ' ? anti : anta],
     }))
   } else {
     polite = politeOlder.map((c) => {
       const mk = (x) =>
-        add({ id: `sent:polite:${x.bn}`, kind: 'sentence', section: 'Family · آپ or تم? (8–12)', group: 'fam-polite', bn: x.bn, roman: x.roman, en: x.en, tokens: x.bn.split(' ') })
+        add({ id: `sent:polite:${x.bn}`, kind: 'sentence', section: 'Family · أَنْتَ or أَنْتِ? (8–12)', group: 'fam-polite', bn: x.bn, roman: x.roman, en: x.en, tokens: x.bn.split(' ') })
       const rightId = c.existing ? `sent:${c.right.bn}` : mk(c.right)
       const wrongIds = c.wrong.map((w) => (c.existing ? `sent:${w.bn}` : mk(w)))
       return { title: c.title, stem: { art: c.art }, rightId, wrongIds }
@@ -177,7 +177,7 @@ adultSentenceGroups.forEach((g) => {
   )
 })
 
-// Perfect / future patterns: tense -> verb -> [میں, تم, آپ] form ids
+// Perfect / future patterns: tense -> verb -> [pronoun] form ids
 export const formIdsByTense = { perfect: {}, future: {} }
 tenseVerbs.forEach((v) => {
   ;['perfect', 'future'].forEach((tense) => {
@@ -252,7 +252,7 @@ stories.forEach((st) => {
   })
 })
 
-// ---- Explore Pakistan: each region's words (cities + local vocabulary) and its reading lines ------------------------------
+// ---- Explore the Arab world: each region's words (cities + local vocabulary) and its reading lines ------------------------------
 export const exploreCats = {}
 exploreRegions.forEach((r) => {
   const cat = `x-${r.id}`

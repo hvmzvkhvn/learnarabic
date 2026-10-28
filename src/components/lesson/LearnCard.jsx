@@ -14,7 +14,7 @@ function TappableWords({ tokens }) {
           key={i}
           type="button"
           onClick={() => speak(t, { force: true })}
-          className="rounded-xl bg-primary/10 px-3 py-1 font-urdu text-2xl font-bold text-primary transition active:scale-95"
+          className="rounded-xl bg-primary/10 px-3 py-1 font-arabic text-2xl font-bold text-primary transition active:scale-95"
         >
           {t}
         </button>
@@ -50,14 +50,14 @@ export default function LearnCard({ item }) {
 
       {item.kind === 'letter' && (
         <>
-          <p className="font-urdu text-8xl font-bold leading-tight text-primary">{item.bn}</p>
+          <p className="font-arabic text-8xl font-bold leading-tight text-primary">{item.bn}</p>
           <div className="mt-1 flex items-center justify-center gap-3">
             {romanOn && <span className="rounded-full bg-accent px-4 py-1 text-xl font-extrabold">{item.roman}</span>}
             <Speaker text={item.bn} size="lg" label="Hear the letter" />
           </div>
           <div className="mt-5 border-t border-primary/10 pt-4">
             <p className="text-6xl">{item.example.emoji}</p>
-            <p className="font-urdu text-3xl font-bold text-ink">{item.example.bn}</p>
+            <p className="font-arabic text-3xl font-bold text-ink">{item.example.bn}</p>
             {romanOn && <p className="font-bold text-primary">{item.example.roman}</p>}
             <p className="mb-2 text-sm text-ink/50">{item.example.en}</p>
             <Speaker text={item.example.bn} label="Hear the word" />
@@ -67,14 +67,14 @@ export default function LearnCard({ item }) {
 
       {(item.kind === 'sign' || item.kind === 'syllable') && (
         <>
-          <p className="font-urdu text-8xl font-bold leading-tight text-primary">{item.bn}</p>
+          <p className="font-arabic text-8xl font-bold leading-tight text-primary">{item.bn}</p>
           <div className="mt-1 flex items-center justify-center gap-3">
             {romanOn && <span className="rounded-full bg-accent px-4 py-1 text-xl font-extrabold">{item.roman}</span>}
             <Speaker text={item.bn} size="lg" label="Hear it" />
           </div>
           {item.signChar && (
             <p className="mt-4 text-ink/60">
-              The sign <span className="font-urdu text-3xl font-bold text-ink">◌{item.signChar}</span> says "{item.signRoman}"
+              The sign <span className="font-arabic text-3xl font-bold text-ink">◌{item.signChar}</span> {item.signSays ?? `says "${item.signRoman}"`}
             </p>
           )}
         </>
@@ -82,8 +82,8 @@ export default function LearnCard({ item }) {
 
       {item.kind === 'word' && (
         <>
-          <p className="font-urdu text-8xl">{item.art}</p>
-          <p className="mt-2 font-urdu text-5xl font-bold leading-snug text-primary">{item.bn}</p>
+          <p className="font-arabic text-8xl">{item.art}</p>
+          <p className="mt-2 font-arabic text-5xl font-bold leading-snug text-primary">{item.bn}</p>
           {romanOn && <p className="mt-1 text-xl font-extrabold text-ink">{item.roman}</p>}
           <p className="mb-3 text-ink/60">{item.en}</p>
           <Speaker text={item.bn} size="lg" label="Hear the word" />
@@ -92,7 +92,7 @@ export default function LearnCard({ item }) {
 
       {(item.kind === 'sentence' || item.kind === 'form') && (
         <>
-          <p className="mt-6 font-urdu text-4xl font-bold leading-snug text-primary">{item.bn}</p>
+          <p className="mt-6 font-arabic text-4xl font-bold leading-snug text-primary">{item.bn}</p>
           {romanOn && <p className="mt-2 text-lg font-extrabold text-ink">{item.roman}</p>}
           <p className="mb-3 text-ink/60">{item.en}</p>
           <Speaker text={item.bn} size="lg" label="Hear the sentence" />

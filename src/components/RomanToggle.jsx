@@ -1,6 +1,6 @@
 import { useRoman } from '../state/roman'
 
-/** Shows or hides the Latin-letter transliteration under Urdu text, everywhere. */
+/** Shows or hides the Latin-letter transliteration under Arabic text, everywhere. */
 export default function RomanToggle() {
   const [on, setOn] = useRoman()
   return (

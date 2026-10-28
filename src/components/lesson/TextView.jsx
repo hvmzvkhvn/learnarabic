@@ -62,7 +62,7 @@ export default function TextView({ text }) {
       <div className={`card space-y-4 ${poem ? 'text-center' : ''}`}>
         {text.lines.map((l, i) => (
           <div key={l.id} className={`rounded-2xl p-2 transition ${active === i ? 'bg-accent/40 ring-4 ring-secondary/60' : ''}`}>
-            <p dir="rtl" className={`font-urdu font-bold leading-relaxed text-primary ${poem ? 'text-2xl' : 'text-xl'}`}>
+            <p dir="rtl" className={`font-arabic font-bold leading-relaxed text-primary ${poem ? 'text-2xl' : 'text-xl'}`}>
               {l.tokens.map((t, k) => (
                 <span key={k}>
                   <button type="button" onClick={() => speak(strip(t), { force: true })} className="rounded-lg px-0.5 transition hover:bg-primary/10 active:scale-95">

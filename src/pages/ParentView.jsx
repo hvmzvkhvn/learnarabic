@@ -107,7 +107,7 @@ function LearnerCard({ l }) {
         <ul className="mt-2 grid gap-2 sm:grid-cols-2">
           {trouble.map(({ item, miss }) => (
             <li key={item.id} className="flex items-center gap-3 rounded-2xl bg-secondary/10 px-3 py-2">
-              <span className="font-urdu text-2xl font-bold text-primary">{item.bn}</span>
+              <span className="font-arabic text-2xl font-bold text-primary">{item.bn}</span>
               <span className="flex-1 text-sm"><span className="font-bold text-ink">{item.roman}</span>{item.en && <span className="text-ink/60"> · {item.en}</span>}</span>
               <span className="text-xs font-bold text-ink/40">{miss}×</span>
             </li>

@@ -3,7 +3,7 @@ import { buildStrokes, applyFix, strokeLength } from '../../curriculum/strokes'
 import { drawText, ensureFont } from '../../curriculum/trace'
 import { FIXES } from '../../data/strokeFixes'
 
-const COLORS = ['#0F6E4F', '#D9822B', '#7A4FB5', '#2E8B57', '#C2410C', '#2563EB', '#B83280', '#4D7C0F']
+const COLORS = ['#24539A', '#D9822B', '#7A4FB5', '#2E8B57', '#C2410C', '#2563EB', '#B83280', '#4D7C0F']
 
 /** The corrections in force: the committed ones, plus anything being tried out on this device. */
 export function fixFor(glyph, local) {
@@ -14,7 +14,7 @@ export function fixFor(glyph, local) {
  * Shows how to write a glyph: a pen follows each stroke in turn (numbered, in order, headline last).
  * `editing` instead draws every stroke at once, colour-coded with arrows, for the review page.
  */
-export default function StrokeDemo({ glyph, width = 320, height = 280, autoPlay = true, color = '#0F6E4F', local, editing = false, onStrokes }) {
+export default function StrokeDemo({ glyph, width = 320, height = 280, autoPlay = true, color = '#24539A', local, editing = false, onStrokes }) {
   const baseRef = useRef(null)
   const revealRef = useRef(null)
   const raf = useRef(0)
@@ -181,7 +181,7 @@ export default function StrokeDemo({ glyph, width = 320, height = 280, autoPlay 
               <span
                 key={k}
                 className="animate-pop absolute flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-xs font-extrabold text-white shadow"
-                style={{ left: `${(bx / width) * 100}%`, top: `${(by / height) * 100}%`, background: editing ? COLORS[k % COLORS.length] : s.matra ? '#F4A324' : '#0F6E4F' }}
+                style={{ left: `${(bx / width) * 100}%`, top: `${(by / height) * 100}%`, background: editing ? COLORS[k % COLORS.length] : s.matra ? '#F4A324' : '#24539A' }}
               >
                 {k + 1}
               </span>

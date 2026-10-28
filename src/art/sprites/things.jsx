@@ -68,7 +68,7 @@ def('🛍️', () => (
     <circle cx="50" cy="60" r="9" fill={C.white} opacity=".7" />
   </g>
 ))
-def('🧸 🪆', () => ( // a rag doll (the word is گڑیا)
+def('🧸 🪆', () => ( // a rag doll (the word is دُمْيَة)
   <g>
     <circle cx="50" cy="26" r="16" fill={C.skinL} {...st} />
     <path d="M34 24 a16 16 0 0 1 32 0 q-6 -8 -16 -8 q-10 0 -16 8z" fill={C.hair} {...st} />
@@ -200,10 +200,10 @@ def('🍯', () => (
   <g>
     <path d="M26 30 H74 q8 14 4 40 q-2 18 -28 18 q-26 0 -28 -18 q-4 -26 4 -40z" fill={C.orange} {...st} />
     <rect x="24" y="18" width="52" height="14" rx="5" fill={C.brown} {...st} />
-    <rect x="34" y="44" width="32" height="26" rx="4" fill={C.cream} {...st} /><text x="50" y="64" textAnchor="middle" fontSize="16" fontWeight="900" fill={C.brown}>شہد</text>
+    <rect x="34" y="44" width="32" height="26" rx="4" fill={C.cream} {...st} /><text x="50" y="64" textAnchor="middle" fontSize="16" fontWeight="900" fill={C.brown}>عسل</text>
   </g>
 ))
-def('🪕', () => ( // dotara, a Urdu folk lute
+def('🪕', () => ( // a lute (the oud stands in)
   <g transform="rotate(30 50 50)">
     <rect x="46" y="2" width="8" height="46" rx="3" fill={C.brown} {...st} />
     <ellipse cx="50" cy="66" rx="20" ry="24" fill={C.wood} {...st} /><circle cx="50" cy="66" r="7" fill={O} />

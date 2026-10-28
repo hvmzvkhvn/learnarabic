@@ -40,7 +40,7 @@ export default function OfflineCard() {
       {!install.installed && (
         <div className="mt-2">
           {install.canPrompt ? (
-            <button type="button" onClick={install.prompt} className="btn-primary w-full !py-3">Install Learn Urdu</button>
+            <button type="button" onClick={install.prompt} className="btn-primary w-full !py-3">Install Learn Arabic</button>
           ) : install.ios ? (
             <p className="text-sm text-ink/70">On iPhone or iPad: tap the <b>Share</b> button, then <b>Add to Home Screen</b>.</p>
           ) : (

@@ -1,6 +1,6 @@
-# Learn Urdu
+# Learn Arabic
 
-A free Urdu learning site (no login needed), built from the Learn Bangla code. Standard Pakistani Urdu in Nastaliq script, written right to left, with an optional Roman Urdu transliteration. Built with Vite + React, React Router and Tailwind. Progress is saved in the browser (localStorage).
+A free Arabic learning site (no login needed), built from the Learn Urdu code (which came from Learn Bangla). It teaches Modern Standard Arabic (الفصحى), fully vowelled, written right to left, with an optional Latin transliteration. Built with Vite + React, React Router and Tailwind. Progress is saved in the browser (localStorage).
 
 ## Run it
 
@@ -9,65 +9,63 @@ npm install
 npm run dev
 ```
 
-## What is here
+## What is here (phase 1)
 
-Five tracks, all starting from the alphabet:
+Two tracks, both starting from the alphabet:
 
-- **Little Learners (5–7):** the letters in shape families, family words, numbers, colours, animals, food, body, around us, My Pakistan, greetings, and the Family conversation units. Reviews are treasure hunts.
-- **Explorers (8–12):** all letters, aspirated sounds (بھ پھ…), vowel marks, first words, vocabulary, sentences, present-tense verb patterns, the Family units and 4 story chats.
-- **Voyagers (13–15):** script in small steps, joined letters, then greetings, money, travel, everyday life, film and poetry, history, grammar (present, "have done", "will do"), Explore Pakistan and 6 story chats. Every unit ends in a timed boss level.
-- **Pathfinders (16–18):** the fast track: the alphabet in four lessons, then identity, money and time, travel, study and work, weddings, history, poetry and film, grammar, Explore Pakistan and 6 story chats.
-- **Wayfarers (18+):** adults from zero: in-laws, work and banking, health, news, politics and the economy, history from the Mughals to 1947, faith and the arts, Urdu beyond borders (India, the diaspora, Urdu and Hindi), Explore Pakistan and 8 story chats.
+- **Little Learners (5–7):** the letters in shape families, family words, numbers, colours, animals, food, body, around us, the Arab world, greetings, and the Family conversation units. Reviews are treasure hunts.
+- **Explorers (8–12):** all letters, hamza and special shapes (أ إ آ ى ؤ ئ لا), vowel marks (fatḥa, kasra, ḍamma, long vowels, sukuun, shadda, tanwiin), first words, vocabulary, sentences, present-tense verb patterns (أَنَا آكُلُ، أَنْتَ تَأْكُلُ، هُوَ يَأْكُلُ) and the Family units.
 
-Every unit ends with a **Super challenge** (`src/data/super/`). **Explore Pakistan** (`src/data/explore.js`, map in `src/data/bdMap.js`, generated from geoBoundaries' public-domain PAK ADM1 boundaries) covers Punjab, Sindh, Islamabad, Khyber Pakhtunkhwa, Balochistan and Gilgit-Baltistan, with 4 places each; Azad Kashmir is drawn grey with a neutral note that Kashmir is disputed.
+The **Family** units are 14 conversations at home (mornings, school, food and the souq, the mosque and iftar, grandparents, play, manners), each in a short picture version for 5–7 and a longer one for 8–12. In place of Learn Urdu's آپ / تم lesson, the Family units teach **أَنْتَ or أَنْتِ** — the "you" for a boy or man and for a girl or woman.
 
-Poems quoted are public domain only (Iqbal, Ghalib, Mir, a folk rhyme); Faiz and the national anthem are mentioned, not quoted.
-
-Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
-
-**Playbook** (`src/data/playbook/`, all ages): 6 picture books for 5–7 and 6 for 8–15 (Sara's morning, a Lahore rickshaw, Independence Day, palla fish on the Indus, Karachi's beach…), Look & Learn (village, room, market, classroom, city), Build the scene, and for 16+ a storyboard for every Explore region plus "The road to 1947" timeline. The art reuses Learn Bangla's scene engine, with a Pakistani flag and an auto-rickshaw added (`src/art/sprites/`).
+Still to come (stubbed, as Learn Urdu did in its phase 1): the 13–15, 16–18 and 18+ tracks, story chats, Super challenges, Explore the Arab World and the Playbook's books and scenes. Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
 
 ## How the curriculum is organised
 
 ```
-src/data/alphabet.js       letters in shape families (with their spoken names), vowel marks, aspirates
+src/data/alphabet.js       letters in shape families (with their spoken names), vowel marks, hamza and special shapes
 src/data/words.js          word lists by topic
 src/data/sentences.js      sentences and present-tense verb patterns
-src/data/family.js         Family unit: phrases, آپ / تم practice, conversations
-src/data/teenWords.js, teenSentences.js, teenText.js, adultText.js, conjuncts.js   13+ content
-src/data/stories.js        story chats (8–12 and 13+)
-src/curriculum/teenTracks.js  the 13–15, 16–18 and 18+ tracks
+src/data/family.js         Family unit: phrases, أَنْتَ / أَنْتِ practice, conversations
 src/curriculum/bank.js     the content bank: every item gets a stable id
 src/curriculum/tracks.js   tracks → units → lessons (lists of item ids)
 src/curriculum/exercises.js  generates each lesson's practice from its items
 ```
 
-The Urdu text lives in a field called `bn` (the name is kept from Learn Bangla so the shared code did not have to change).
+The Arabic text lives in a field called `bn` (the name is kept from Learn Bangla so the shared code did not have to change). Likewise the hamza / special-shapes list is exported as `aspirates`, Learn Urdu's name for that slot.
 
-Urdu-specific details:
+Arabic-specific details:
 
-- `.font-urdu` text uses Noto Nastaliq Urdu and takes its direction from its first letter (`unicode-bidi: plaintext`), so Urdu lines run right to left inside the English interface. Urdu letters inside English sentences use a slightly larger "Urdu Inline" face (`src/index.css`).
-- A letter on its own is spoken by its name (ب → بے), from `name` in `alphabet.js` (`src/audio/norm.js`).
-- Typing answers ignore vowel marks and accept Arabic-keyboard variants of ی ک ہ.
+- `.font-arabic` text uses Noto Naskh Arabic and takes its direction from its first letter (`unicode-bidi: plaintext`), so Arabic lines run right to left inside the English interface. Arabic letters inside English sentences use a slightly larger "Arabic Inline" face (`src/index.css`).
+- All Arabic is written with full vowel marks; single words are shown without case endings (كِتَاب), sentences with them (هٰذَا كِتَابٌ).
+- A letter on its own is spoken by its name (ب → بَاء), from `name` in `alphabet.js` (`src/audio/norm.js`).
+- Typing answers ignore vowel marks and tatweel, and accept ا for أ إ آ, ي for ى and ه for ة.
+- Numbers use the Arabic-Indic digits ٠١٢٣٤٥٦٧٨٩.
+- Month names are the ones used in Egypt, North Africa and the Gulf; the note on that unit mentions the Levantine names.
 - Stroke guides are generated from the font (right to left, body first) and stay hidden until approved on `/review/strokes`.
 
-**Reviewing content:** open `/review`, mark each item, then use *Copy corrections* or *Download as JSON*.
+**Reviewing content:** open `/review`, mark each item, then use *Copy corrections* or *Download as JSON*. An Arabic teacher should check the vowelling before launch.
 
-**Address rules** (Family unit): the child (Sara) says آپ to every elder; elders say تم to the child; Sara says تم to friends (Ali, Hina). In story chats the learner may be a boy or a girl, so their replies avoid gendered verb endings.
+**Address rules** (Family unit): Sara is a girl, so everyone says أَنْتِ / -كِ to her and words describing her end in -ة (أَنَا جَاهِزَةٌ). She says أَنْتَ / -كَ to Dad, Grandpa, Uncle, Yusuf and the shopkeeper, and أَنْتِ / -كِ to Mum, Grandma and Layla. Respect for elders comes from يَا أَبِي، يَا جَدِّي and مِنْ فَضْلِكَ, not a special pronoun.
 
 Checkers:
 
 ```bash
-npm run lint:family     # آپ / تم address rules in every Family line
-npm run lint:stories    # every story graph: links, dead ends, reachable endings, no elder saying آپ to the learner
-npm run lint:super      # Super challenges only use letters / words already taught (verb forms and -ی/-ے endings forgiven)
+npm run lint:family     # the "you" matches the listener in every Family line; every word is vowelled
+npm run lint:marks      # every Arabic word in the curriculum carries vowel marks
+npm run lint:stories    # every story graph: links, dead ends, reachable endings (no stories yet)
+npm run lint:super      # Super challenges only use words already taught (no sets yet)
 ```
 
 ## Audio
 
 ```bash
 pip install edge-tts
-npm run audio            # voice ur-PK-UzmaNeural; skips files that already exist
+npm run audio            # voice ar-SA-ZariyahNeural; skips files that already exist
 ```
 
-To use real recordings, replace a file in `public/audio` with your own mp3 of the same name, or record in the voice studio (`/studio`).
+No audio has been generated yet; until it is, the app uses the browser's Arabic voice where one exists. To use real recordings, replace a file in `public/audio` with your own mp3 of the same name, or record in the voice studio (`/studio`).
+
+## Deploy
+
+`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`, served from `https://<user>.github.io/learnarabic/` (set the `VITE_BASE` repository variable to `/` once there is a custom domain).

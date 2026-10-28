@@ -8,7 +8,7 @@ export default function Privacy() {
     <div className="mx-auto max-w-2xl px-5 py-6">
       <Link to="/" className="text-sm font-bold text-primary">← Back to the app</Link>
       <h1 className="mt-2 text-3xl font-extrabold text-primary">Privacy notice</h1>
-      <p className="mb-6 text-ink/60">Learn Urdu is built for children, so it keeps as little as possible.</p>
+      <p className="mb-6 text-ink/60">Learn Arabic is built for children, so it keeps as little as possible.</p>
 
       <Section title="Without an account">
         <p>Nothing is sent anywhere. Your progress, XP, streak and answers are saved only in this browser on this device. Recordings you make with “Say it” stay in memory and are gone when you leave the card. Recordings made in the Voice studio are kept in this browser only.</p>

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { shuffle } from '../../curriculum/text'
 import { speak } from '../../audio/audio'
 
-/** Flip cards to match each Urdu word with its meaning. onFinish({ moves, seconds }) */
+/** Flip cards to match each Arabic word with its meaning. onFinish({ moves, seconds }) */
 export default function MemoryGame({ pool, pairs = 6, mode = 'en', onFinish }) {
   const cards = useMemo(() => {
     const chosen = shuffle(pool.filter((w) => w.bn.length <= 12 && (mode === 'picture' ? w.art : w.en.length <= 22))).slice(0, pairs)
@@ -77,7 +77,7 @@ export default function MemoryGame({ pool, pairs = 6, mode = 'en', onFinish }) {
               }`}
             >
               {up ? (
-                <span className={`leading-tight ${c.side === 'bn' ? 'font-urdu text-xl font-bold text-primary' : c.side === 'art' ? 'text-5xl' : 'text-sm font-extrabold text-ink'}`}>{c.text}</span>
+                <span className={`leading-tight ${c.side === 'bn' ? 'font-arabic text-xl font-bold text-primary' : c.side === 'art' ? 'text-5xl' : 'text-sm font-extrabold text-ink'}`}>{c.text}</span>
               ) : (
                 <span className="text-3xl text-white/80">⭐</span>
               )}

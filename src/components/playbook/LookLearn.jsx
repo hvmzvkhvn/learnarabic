@@ -6,7 +6,7 @@ import { speak } from '../../audio/audio'
 import { useRoman } from '../../state/roman'
 import { useGame } from '../../state/game'
 
-/** Tap anything in the picture to hear and see its Urdu name. "Find it" mode asks you to tap the thing you hear. */
+/** Tap anything in the picture to hear and see its Arabic name. "Find it" mode asks you to tap the thing you hear. */
 export default function LookLearn({ look, backTo = '/playbook' }) {
   const { act, game } = useGame()
   const [romanOn] = useRoman()
@@ -72,7 +72,7 @@ export default function LookLearn({ look, backTo = '/playbook' }) {
     <div className="mt-2">
       <div className="mb-3 flex items-center gap-3">
         <Link to={backTo} aria-label="Back" className="flex h-10 w-10 items-center justify-center rounded-full bg-white font-extrabold text-ink/50 shadow">←</Link>
-        <h1 className="flex-1 truncate text-lg font-extrabold text-ink">{look.title.en} <span className="font-urdu text-primary">· {look.title.bn}</span></h1>
+        <h1 className="flex-1 truncate text-lg font-extrabold text-ink">{look.title.en} <span className="font-arabic text-primary">· {look.title.bn}</span></h1>
       </div>
 
       <div className={wrong ? 'animate-shake' : ''}>
@@ -96,7 +96,7 @@ export default function LookLearn({ look, backTo = '/playbook' }) {
         {mode === 'explore' && w && (
           <div className="flex items-center gap-3">
             <div className="flex-1">
-              <p className="font-urdu text-3xl font-extrabold text-primary">{w.bn}</p>
+              <p className="font-arabic text-3xl font-extrabold text-primary">{w.bn}</p>
               {romanOn && <p className="text-sm font-bold text-ink/70">{w.roman}</p>}
               <p className="text-sm text-ink/60">{w.en}</p>
             </div>

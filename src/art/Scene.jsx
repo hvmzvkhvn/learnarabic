@@ -7,7 +7,7 @@ import { scaleFor, spriteFor } from './sprites'
 //   scene = { bg: 'village', time: 'day' | 'evening' | 'night' | 'rain', items: [ … ], noLuminary?: true (no painted sun / moon, when a sun or moon is an item) }
 //   item  = { e: '🏠', x: 20, y: 62, s: 56, flip?, anim?: 'bob'|'sway'|'drift'|'pulse', shadow?: false, z?: n }
 //         | { t: '1947', x, y, s, c?: colour, w?: weight }            (big text)
-//         | { map: 'sylhet', x, y, w }                                (Pakistan, one region highlighted)
+//         | { map: 'sylhet', x, y, w }                                (the Explore map, one region highlighted)
 //   x and y are percentages of the picture; s is the emoji size in picture units (the picture is 400 × 260).
 const W = 400
 const H = 260
@@ -269,7 +269,7 @@ function Item({ it }) {
   }
   if (it.t !== undefined) {
     return (
-      <text x={x} y={y} textAnchor="middle" fontSize={it.s ?? 40} fontWeight={it.w ?? 900} fill={it.c ?? '#2D2D2D'} stroke="#fff" strokeWidth="5" paintOrder="stroke" className={`font-urdu ${cls}`}>
+      <text x={x} y={y} textAnchor="middle" fontSize={it.s ?? 40} fontWeight={it.w ?? 900} fill={it.c ?? '#2D2D2D'} stroke="#fff" strokeWidth="5" paintOrder="stroke" className={`font-arabic ${cls}`}>
         {it.t}
       </text>
     )

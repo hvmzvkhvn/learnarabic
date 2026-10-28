@@ -1,4 +1,4 @@
-// Every piece of Urdu text that gets spoken in the app, in curriculum order, with a hint of what it means.
+// Every piece of Arabic text that gets spoken in the app, in curriculum order, with a hint of what it means.
 // Mirrors scripts/generate-audio.mjs so the Studio records exactly the clips the app plays.
 import { bank } from '../curriculum/bank'
 import { norm, sayFor } from './norm'

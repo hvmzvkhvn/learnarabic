@@ -1,10 +1,10 @@
-// Generates an mp3 for every piece of Urdu text in the curriculum, plus public/audio/manifest.json.
+// Generates an mp3 for every piece of Arabic text in the curriculum, plus public/audio/manifest.json.
 //
-//   pip install edge-tts           (one-off; free neural voices incl. Pakistani Urdu (ur-PK))
+//   pip install edge-tts           (one-off; free neural voices incl. Arabic (ar-SA))
 //   npm run audio                  (skips files that already exist)
 //   npm run audio -- --force       (regenerate everything)
 //
-// Voice: ur-PK-UzmaNeural (override with AUDIO_VOICE). Binary: `edge-tts` on PATH (override with EDGE_TTS).
+// Voice: ar-SA-ZariyahNeural (override with AUDIO_VOICE). Binary: `edge-tts` on PATH (override with EDGE_TTS).
 // To use real recordings instead, just replace a file in public/audio with your own mp3 of the same name.
 import { createServer } from 'vite'
 import { execFile } from 'node:child_process'
@@ -18,7 +18,7 @@ const run = promisify(execFile)
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const outDir = path.join(root, 'public/audio')
 const EDGE = process.env.EDGE_TTS || 'edge-tts'
-const VOICE = process.env.AUDIO_VOICE || 'ur-PK-UzmaNeural'
+const VOICE = process.env.AUDIO_VOICE || 'ar-SA-ZariyahNeural'
 const force = process.argv.includes('--force')
 
 const server = await createServer({ root, server: { middlewareMode: true }, appType: 'custom', logLevel: 'error' })

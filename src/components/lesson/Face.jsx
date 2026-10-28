@@ -1,8 +1,8 @@
 import Speaker from '../Speaker'
 import { useRoman } from '../../state/roman'
 
-// Renders a "face": any mix of picture/digit (art), Urdu (bn), romanisation and English text.
-// With `speak`, a 🔊 button plays the Urdu (f.say overrides what is spoken; f.noAudio silences it).
+// Renders a "face": any mix of picture/digit (art), Arabic (bn), romanisation and English text.
+// With `speak`, a 🔊 button plays the Arabic (f.say overrides what is spoken; f.noAudio silences it).
 export default function Face({ f, big = false, speak = false }) {
   const [romanOn] = useRoman()
   if (!f) return null
@@ -16,9 +16,9 @@ export default function Face({ f, big = false, speak = false }) {
   }
   return (
     <div className="flex flex-col items-center text-center leading-tight">
-      {f.art && <span className={`font-urdu ${big ? 'text-7xl' : 'text-4xl'}`}>{f.art}</span>}
+      {f.art && <span className={`font-arabic ${big ? 'text-7xl' : 'text-4xl'}`}>{f.art}</span>}
       {f.bn && (
-        <span className={`font-urdu font-bold text-primary ${big ? (f.bn.length > 40 ? 'mt-2 text-2xl leading-snug' : f.bn.length > 22 ? 'mt-2 text-3xl leading-snug' : 'mt-2 text-5xl') : 'text-2xl'}`}>{f.bn}</span>
+        <span className={`font-arabic font-bold text-primary ${big ? (f.bn.length > 40 ? 'mt-2 text-2xl leading-snug' : f.bn.length > 22 ? 'mt-2 text-3xl leading-snug' : 'mt-2 text-5xl') : 'text-2xl'}`}>{f.bn}</span>
       )}
       {f.roman && (romanOn || !f.bn) && <span className="mt-1 text-sm font-bold text-ink/50">{f.roman}</span>}
       {f.text && <span className={`font-extrabold text-ink ${big ? 'mt-2 text-2xl' : 'text-base'}`}>{f.text}</span>}

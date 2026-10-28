@@ -1,7 +1,7 @@
 import { speak } from '../../audio/audio'
 import { today } from '../../state/game'
 import { cityOfTheDay } from '../../state/explore'
-import UrduLine from './UrduLine'
+import ArabicLine from './ArabicLine'
 
 /** A postcard from a different city every day. Reading it earns a stamp the first time. */
 export default function Postcard({ ex }) {
@@ -19,12 +19,12 @@ export default function Postcard({ ex }) {
         <span className="text-4xl">{c.emoji}</span>
         <span className="flex-1">
           <span className="block text-xs font-extrabold uppercase tracking-wide text-secondary">✉️ Today's postcard</span>
-          <span className="block text-xl font-extrabold text-ink">From <span className="font-urdu text-primary">{c.bn}</span> · {c.name}</span>
+          <span className="block text-xl font-extrabold text-ink">From <span className="font-arabic text-primary">{c.bn}</span> · {c.name}</span>
         </span>
         <span className="text-3xl">{got ? '✅' : '📮'}</span>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-ink/80">Greetings from {c.name}, in {c.region.name}! {c.fact}</p>
-      <div className="mt-3"><UrduLine s={c.line} /></div>
+      <div className="mt-3"><ArabicLine s={c.line} /></div>
       {!got && <button type="button" onClick={collect} className="btn-secondary mt-3 w-full !py-3">Collect today's stamp</button>}
     </div>
   )

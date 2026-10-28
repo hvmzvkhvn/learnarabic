@@ -18,7 +18,7 @@ export default function UnitList({ track, progress, nextId }) {
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-2xl">{u.emoji}</span>
               <span className="flex-1">
                 <span className="block text-xs font-extrabold uppercase tracking-wide text-ink/40">Unit {ui + 1}</span>
-                <span className="block font-urdu text-lg font-extrabold leading-snug text-ink">{u.title}</span>
+                <span className="block font-arabic text-lg font-extrabold leading-snug text-ink">{u.title}</span>
                 <span className="block text-xs text-ink/50">{u.blurb}</span>
               </span>
               <span className="text-sm font-extrabold text-primary">
@@ -40,7 +40,7 @@ export default function UnitList({ track, progress, nextId }) {
                       }`}
                     >
                       <span className="text-xl">{l.emoji}</span>
-                      <span className="flex-1 font-urdu leading-tight">{l.title}</span>
+                      <span className="flex-1 font-arabic leading-tight">{l.title}</span>
                       {p && <span className="text-xs">{'⭐'.repeat(p.stars)}</span>}
                     </Link>
                   )

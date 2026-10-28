@@ -79,7 +79,7 @@ export default function Review() {
     const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }))
     const a = document.createElement('a')
     a.href = url
-    a.download = 'learn-urdu-corrections.json'
+    a.download = 'learn-arabic-corrections.json'
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -139,11 +139,11 @@ export default function Review() {
               return (
                 <div key={i.id} className={`card !p-3 ${st === 'ok' ? '!bg-success/10' : st === 'fix' ? '!bg-error/10' : ''}`}>
                   <div className="flex items-center gap-3">
-                    <span className="w-10 text-center font-urdu text-2xl">{i.art ?? ''}</span>
+                    <span className="w-10 text-center font-arabic text-2xl">{i.art ?? ''}</span>
                     <div className="min-w-0 flex-1">
                       {i.speakerName && <p className="text-xs font-extrabold uppercase tracking-wide text-ink/40">{i.speakerName} says</p>}
                       {i.bn && (
-                        <p className="flex items-center gap-2 font-urdu text-2xl font-bold leading-snug text-primary">
+                        <p className="flex items-center gap-2 font-arabic text-2xl font-bold leading-snug text-primary">
                           {i.bn}
                           <Speaker text={i.bn} size="sm" label="Hear it" />
                         </p>
@@ -152,7 +152,7 @@ export default function Review() {
                       {i.en && <p className="text-sm text-ink/60">{i.en}</p>}
                       {i.example && (
                         <p className="flex items-center gap-2 text-xs text-ink/50">
-                          example: <span className="font-urdu font-bold">{i.example.bn}</span> ({i.example.roman}) = {i.example.en}
+                          example: <span className="font-arabic font-bold">{i.example.bn}</span> ({i.example.roman}) = {i.example.en}
                           <Speaker text={i.example.bn} size="sm" label="Hear the example" />
                         </p>
                       )}
@@ -163,7 +163,7 @@ export default function Review() {
                       className={`h-10 w-10 rounded-full text-lg font-extrabold ${st === 'fix' ? 'bg-error text-white' : 'bg-white text-error shadow'}`}>⚑</button>
                   </div>
                   {st === 'fix' && (
-                    <textarea className="input-field mt-2 text-sm" rows={2} placeholder="What should it be? (correct Urdu, spelling, romanisation, meaning…)"
+                    <textarea className="input-field mt-2 text-sm" rows={2} placeholder="What should it be? (correct Arabic, spelling, romanisation, meaning…)"
                       value={marks[i.id]?.note ?? ''} onChange={(e) => setNote(i.id, e.target.value)} />
                   )}
                 </div>

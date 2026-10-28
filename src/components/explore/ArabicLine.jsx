@@ -2,14 +2,14 @@ import { speak } from '../../audio/audio'
 import Speaker from '../Speaker'
 import { useRoman } from '../../state/roman'
 
-/** A line of Urdu with tap-a-word audio, romanisation and the English underneath. */
-export default function UrduLine({ s, emoji, size = 'text-xl' }) {
+/** A line of Arabic with tap-a-word audio, transliteration and the English underneath. */
+export default function ArabicLine({ s, emoji, size = 'text-xl' }) {
   const [romanOn] = useRoman()
   return (
     <div className="flex items-start gap-3 rounded-2xl bg-white px-3 py-3 shadow-sm">
       {emoji && <span className="text-3xl">{emoji}</span>}
       <div className="flex-1">
-        <p dir="rtl" className={`font-urdu font-bold leading-snug text-primary ${size}`}>
+        <p dir="rtl" className={`font-arabic font-bold leading-snug text-primary ${size}`}>
           {s.bn.split(' ').map((t, i) => (
             <button key={i} type="button" onClick={() => speak(t, { force: true })} className="me-1.5 rounded-lg px-0.5 transition active:scale-95 hover:bg-primary/10">
               {t}

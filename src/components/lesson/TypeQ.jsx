@@ -2,15 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 import Face from './Face'
 import Prompt from './Prompt'
 import Speaker from '../Speaker'
-import UrduKeyboard from './UrduKeyboard'
+import ArabicKeyboard from './ArabicKeyboard'
 import { speak } from '../../audio/audio'
 import { splitClusters } from '../../curriculum/text'
 
-// Compare ignoring vowel marks (aerab), spaces and punctuation, and treat Arabic-keyboard variants (ي ك ه) as their Urdu letters.
+// Compare ignoring vowel marks (tashkeel) and tatweel, spaces and punctuation, and forgive the spellings learners mix up:
+// any alif with hamza or madda (أ إ آ ٱ) for ا, ى for ي, and ة for ه.
 const norm = (s) =>
-  s.normalize('NFC').replace(/[\u064B-\u065F\u0670]/g, '').replace(/ي|ى/g, 'ی').replace(/ك/g, 'ک').replace(/ه/g, 'ہ').replace(/[\s\u200c\u200d۔،؟?!.,"“”\-—]/g, '')
+  s.normalize('NFC').replace(/[\u064B-\u065F\u0670\u0640]/g, '').replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ة/g, 'ه').replace(/[\s\u200c\u200d،؛؟?!.,"“”«»\-—]/g, '')
 
-/** Hear the word (and see its meaning), then type it in Urdu. */
+/** Hear the word (and see its meaning), then type it in Arabic. */
 export default function TypeQ({ ex, onSolved, onWrong, onTyped }) {
   const [value, setValue] = useState('')
   const [hints, setHints] = useState(0)
@@ -60,7 +61,7 @@ export default function TypeQ({ ex, onSolved, onWrong, onTyped }) {
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && check()}
           placeholder="Type here…"
-          className={`input-field !py-3 text-center font-urdu !text-3xl font-bold ${solved ? '!border-success !bg-success/10' : ''}`}
+          className={`input-field !py-3 text-center font-arabic !text-3xl font-bold ${solved ? '!border-success !bg-success/10' : ''}`}
         />
       </div>
 
@@ -76,7 +77,7 @@ export default function TypeQ({ ex, onSolved, onWrong, onTyped }) {
               Check
             </button>
           </div>
-          <UrduKeyboard onKey={(c) => setValue((v) => v + c)} onBackspace={() => setValue((v) => Array.from(v).slice(0, -1).join(''))} onSpace={() => setValue((v) => v + ' ')} />
+          <ArabicKeyboard onKey={(c) => setValue((v) => v + c)} onBackspace={() => setValue((v) => Array.from(v).slice(0, -1).join(''))} onSpace={() => setValue((v) => v + ' ')} />
         </>
       )}
     </div>

@@ -1,4 +1,4 @@
-// Audio engine: plays the pre-recorded Urdu clips (public/audio), falls back to a browser Urdu
+// Audio engine: plays the pre-recorded Arabic clips (public/audio), falls back to a browser Arabic
 // voice if one exists, and can read English instructions aloud with the browser voice.
 import { useEffect, useState } from 'react'
 import { norm, sayFor } from './norm'
@@ -51,7 +51,7 @@ export function stop() {
   synth?.cancel()
 }
 
-/** Play one piece of Urdu text. Resolves true if it played to the end. */
+/** Play one piece of Arabic text. Resolves true if it played to the end. */
 export async function speak(text, { force = false, skipMine = false } = {}) {
   if (!text || (!force && !soundOn())) return false
   await loadManifest()
@@ -85,12 +85,12 @@ export async function speak(text, { force = false, skipMine = false } = {}) {
       el.addEventListener('pause', done)
     })
   }
-  const ur = voiceFor('ur')
-  if (synth && ur) {
+  const ar = voiceFor('ar')
+  if (synth && ar) {
     return new Promise((resolve) => {
       const u = new SpeechSynthesisUtterance(sayFor(text))
-      u.voice = ur
-      u.lang = ur.lang
+      u.voice = ar
+      u.lang = ar.lang
       u.rate = 0.8
       u.onend = () => resolve(true)
       u.onerror = () => resolve(false)
@@ -128,9 +128,9 @@ export function speakEnglish(text) {
 
 export const canSpeakEnglish = () => Boolean(synth)
 
-/** True once the manifest is loaded and the text has a recording (or a browser Urdu voice exists). */
+/** True once the manifest is loaded and the text has a recording (or a browser Arabic voice exists). */
 export function hasAudio(text) {
-  return Boolean(manifest?.[norm(text)]) || Boolean(voiceFor('ur'))
+  return Boolean(manifest?.[norm(text)]) || Boolean(voiceFor('ar'))
 }
 
 export function useAudioReady() {

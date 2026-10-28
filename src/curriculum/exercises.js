@@ -83,7 +83,7 @@ function letterExercises(item, lessonItems, track) {
 function syllableExercises(item) {
   const pool = poolFor(item).filter((x) => x.id !== item.id)
   if (!romanOn()) {
-    // no transliteration to match against: listen and pick the Urdu instead
+    // no transliteration to match against: listen and pick the Arabic instead
     const l = choice({
       itemId: item.id, title: 'Listen. Which one is it?', stem: { listen: true, say: item.bn, noAudio: true },
       correct: { bn: item.bn }, candidates: pool.map((p) => ({ bn: p.bn })), dim: 'bn',
@@ -123,7 +123,7 @@ function wordExercises(item, lessonItems, track) {
     })
     const b = choice({
       itemId: item.id,
-      title: 'How do you say this in Urdu?',
+      title: 'How do you say this in Arabic?',
       stem: { art: item.art, text: item.en },
       correct: { bn: item.bn },
       candidates: pool.map((p) => ({ bn: p.bn })),
@@ -141,7 +141,7 @@ function wordExercises(item, lessonItems, track) {
     })
     const b = choice({
       itemId: item.id,
-      title: 'How do you say this in Urdu?',
+      title: 'How do you say this in Arabic?',
       stem: { text: item.en, art: item.art },
       correct: { bn: item.bn },
       candidates: pool.map((p) => ({ bn: p.bn })),
@@ -309,7 +309,7 @@ export function typeExercise(item) {
   if (item.kind !== 'word' || /\s/.test(item.bn)) return null
   const n = splitClusters(item.bn).length
   if (n < 2 || n > 7) return null
-  return { id: nextId(), type: 'type', tag: 'type', itemId: item.id, title: 'Type it in Urdu', stem: { art: item.art, text: item.en }, say: item.bn, target: item.bn }
+  return { id: nextId(), type: 'type', tag: 'type', itemId: item.id, title: 'Type it in Arabic', stem: { art: item.art, text: item.en }, say: item.bn, target: item.bn }
 }
 
 /** Listen-and-tap-the-picture, for learners who can't read yet. Only for words that have an unambiguous picture. */
@@ -433,7 +433,7 @@ function superExercises(items, trackKey) {
     const listenMeaning = choice({ itemId: it.id, title: 'Listen. What does it mean?', stem: { listen: true, say: it.bn, noAudio: true }, correct: { text: it.en }, candidates: others.map((o) => ({ text: o.en })), dim: 'text' })
     const cloze = toks.length >= 3 ? clozeExercise({ ...it, tokens: toks }, others.map((o) => ({ ...o, tokens: tokensOf(o) }))) : null
     out.push(meaning, tiles('Build it. Watch out for extra tiles!', { text: it.en }))
-    const third = [cloze, typing ? { id: nextId(), type: 'type', tag: 'type', itemId: it.id, title: 'Listen and type it in Urdu', stem: { listen: true, say: it.bn, noAudio: true }, say: it.bn, target: it.bn } : tiles('Listen and build it', { listen: true, say: it.bn, noAudio: true }), listenMeaning]
+    const third = [cloze, typing ? { id: nextId(), type: 'type', tag: 'type', itemId: it.id, title: 'Listen and type it in Arabic', stem: { listen: true, say: it.bn, noAudio: true }, say: it.bn, target: it.bn } : tiles('Listen and build it', { listen: true, say: it.bn, noAudio: true }), listenMeaning]
     out.push(third[idx % 3] ?? listenMeaning)
   })
   return shuffle(out.filter(Boolean))

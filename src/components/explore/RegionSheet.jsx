@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { speak } from '../../audio/audio'
 import Speaker from '../Speaker'
-import UrduLine from './UrduLine'
+import ArabicLine from './ArabicLine'
 import ThenNow from './ThenNow'
 import { useRoman } from '../../state/roman'
 import { regionStoryboards } from '../../data/playbook'
@@ -38,7 +38,7 @@ export default function RegionSheet({ region: r, tier, ex, lessonId, onClose, on
         <div className="sticky top-0 z-10 -mx-5 -mt-4 mb-2 flex items-center gap-3 bg-background/95 px-5 py-3 backdrop-blur">
           <span className="text-4xl">{r.emoji}</span>
           <span className="flex-1">
-            <span className="block font-urdu text-3xl font-extrabold leading-none text-primary">{r.bn}</span>
+            <span className="block font-arabic text-3xl font-extrabold leading-none text-primary">{r.bn}</span>
             <span className="block text-sm font-bold text-ink/50">{r.name}{romanOn ? ` · ${r.roman}` : ''}</span>
           </span>
           <Speaker text={r.bn} size="md" label="Hear the name" />
@@ -52,10 +52,10 @@ export default function RegionSheet({ region: r, tier, ex, lessonId, onClose, on
         {(tier === 'senior' || tier === 'adult') && regionStoryboards[r.id] && (
           <Link to={`/playbook/story/${r.id}`} className="btn-secondary mt-3 w-full !py-3">▶ Watch the story of {r.name}</Link>
         )}
-        <div className="mt-3"><UrduLine s={r.intro} size="text-2xl" /></div>
+        <div className="mt-3"><ArabicLine s={r.intro} size="text-2xl" /></div>
 
         <SectionTitle>⭐ Famous for</SectionTitle>
-        <div className="space-y-2">{r.famous.map((f) => <UrduLine key={f.bn} s={f} emoji={f.emoji} />)}</div>
+        <div className="space-y-2">{r.famous.map((f) => <ArabicLine key={f.bn} s={f} emoji={f.emoji} />)}</div>
 
         <SectionTitle>⏳ Then &amp; Now</SectionTitle>
         <ThenNow then={r.then} now={r.now} />
@@ -71,7 +71,7 @@ export default function RegionSheet({ region: r, tier, ex, lessonId, onClose, on
         )}
 
         <SectionTitle>🌾 Made &amp; grown here</SectionTitle>
-        <div className="space-y-2">{r.made.map((f) => <UrduLine key={f.bn} s={f} emoji={f.emoji} />)}</div>
+        <div className="space-y-2">{r.made.map((f) => <ArabicLine key={f.bn} s={f} emoji={f.emoji} />)}</div>
         {tier !== 'teen' && (
           <div className="mt-3 rounded-2xl bg-secondary/10 px-4 py-3">
             <p className="text-xs font-extrabold uppercase tracking-wide text-ink/40">💰 The economy</p>
@@ -94,7 +94,7 @@ export default function RegionSheet({ region: r, tier, ex, lessonId, onClose, on
                 <button type="button" onClick={() => toggleCity(c)} className="flex w-full items-center gap-3 px-3 py-3 text-left" aria-expanded={open}>
                   <span className="text-3xl">{c.emoji}</span>
                   <span className="flex-1">
-                    <span className="block font-urdu text-xl font-extrabold text-primary">{c.bn}</span>
+                    <span className="block font-arabic text-xl font-extrabold text-primary">{c.bn}</span>
                     <span className="block text-xs font-bold text-ink/50">{c.name}</span>
                   </span>
                   {ex.cityStamped(c) && <span title="Stamped">🛂</span>}
@@ -103,13 +103,13 @@ export default function RegionSheet({ region: r, tier, ex, lessonId, onClose, on
                 {open && (
                   <div className="animate-slideIn space-y-3 border-t border-primary/10 px-3 py-3">
                     <p className="text-sm leading-relaxed text-ink/80">{c.fact}</p>
-                    <UrduLine s={c.line} />
+                    <ArabicLine s={c.line} />
                     <div className="flex flex-wrap gap-2">
                       {c.words.map((w) => (
                         <button key={w.bn} type="button" onClick={() => speak(w.bn, { force: true })} className="flex items-center gap-2 rounded-2xl bg-accent/40 px-3 py-2 text-left transition active:scale-95">
                           <span className="text-2xl">{w.emoji}</span>
                           <span>
-                            <span className="block font-urdu text-lg font-bold leading-none text-ink">{w.bn}</span>
+                            <span className="block font-arabic text-lg font-bold leading-none text-ink">{w.bn}</span>
                             <span className="block text-xs text-ink/60">{romanOn ? `${w.roman} · ` : ''}{w.en}</span>
                           </span>
                         </button>

@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
 const ROWS = {
-  Letters: ['ا', 'آ', 'ب', 'پ', 'ت', 'ٹ', 'ث', 'ج', 'چ', 'ح', 'خ', 'د', 'ڈ', 'ذ', 'ر', 'ڑ', 'ز', 'ژ', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ک', 'گ', 'ل', 'م', 'ن', 'ں', 'و', 'ہ', 'ھ', 'ء', 'ی', 'ے'],
-  More: ['ئ', 'ؤ', 'ۂ', 'ۓ', 'ة', '۔', '؟', '،'],
-  Marks: ['َ', 'ِ', 'ُ', 'ّ', 'ْ', 'ٰ', 'ً', 'ٔ'],
+  Letters: ['ا', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ك', 'ل', 'م', 'ن', 'ه', 'و', 'ي', 'ة', 'ء'],
+  More: ['أ', 'إ', 'آ', 'ى', 'ؤ', 'ئ', 'لا', '.', '؟', '،'],
+  Marks: ['َ', 'ِ', 'ُ', 'ْ', 'ّ', 'ً', 'ٍ', 'ٌ'],
 }
 const SHOW = { Marks: (c) => `◌${c}` }
 
-/** On-screen Urdu keyboard, laid out in alphabet order. Marks (zabar, zer, pesh…) attach to the letter before them. */
-export default function UrduKeyboard({ onKey, onBackspace, onSpace }) {
+/** On-screen Arabic keyboard, laid out in alphabet order. Marks (fatḥa, kasra, ḍamma…) attach to the letter before them. */
+export default function ArabicKeyboard({ onKey, onBackspace, onSpace }) {
   const [tab, setTab] = useState('Letters')
   return (
     <div className="rounded-3xl bg-white p-3 shadow-sm">
@@ -30,7 +30,7 @@ export default function UrduKeyboard({ onKey, onBackspace, onSpace }) {
             key={c}
             type="button"
             onClick={() => onKey(c)}
-            className="h-11 rounded-xl bg-background font-urdu text-xl font-bold text-primary shadow-sm transition active:scale-90 hover:bg-accent/40"
+            className="h-11 rounded-xl bg-background font-arabic text-xl font-bold text-primary shadow-sm transition active:scale-90 hover:bg-accent/40"
           >
             {(SHOW[tab] ?? ((x) => x))(c)}
           </button>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import UrduLine from './UrduLine'
+import ArabicLine from './ArabicLine'
 
 /** Drag between the past and the present of a region. */
 export default function ThenNow({ then, now }) {
@@ -18,7 +18,7 @@ export default function ThenNow({ then, now }) {
       />
       <div key={isNow ? 'now' : 'then'} className="animate-slideIn space-y-3">
         <p className="text-base leading-relaxed text-ink/80">{part.en}</p>
-        <UrduLine s={part.line} />
+        <ArabicLine s={part.line} />
       </div>
     </div>
   )

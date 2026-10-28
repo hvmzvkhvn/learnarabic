@@ -64,7 +64,7 @@ export default function BuildScene({ task, backTo = '/playbook' }) {
     <div className="mt-2">
       <div className="mb-3 flex items-center gap-3">
         <Link to={backTo} aria-label="Back" className="flex h-10 w-10 items-center justify-center rounded-full bg-white font-extrabold text-ink/50 shadow">←</Link>
-        <h1 className="flex-1 truncate text-lg font-extrabold text-ink">{task.title.en} <span className="font-urdu text-primary">· {task.title.bn}</span></h1>
+        <h1 className="flex-1 truncate text-lg font-extrabold text-ink">{task.title.en} <span className="font-arabic text-primary">· {task.title.bn}</span></h1>
         <span className="text-sm font-bold text-ink/40">{Math.min(n, task.steps.length)} / {task.steps.length}</span>
       </div>
 
@@ -89,7 +89,7 @@ export default function BuildScene({ task, backTo = '/playbook' }) {
         <div className="mt-3">
           <div className="flex items-center justify-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm">
             <span className="text-center">
-              <span className="block font-urdu text-3xl font-extrabold text-primary">{step.word.bn}</span>
+              <span className="block font-arabic text-3xl font-extrabold text-primary">{step.word.bn}</span>
               {romanOn && <span className="block text-sm font-bold text-ink/70">{step.word.roman}</span>}
               {misses > 0 && <span className="block text-sm text-ink/50">{step.word.en}</span>}
             </span>

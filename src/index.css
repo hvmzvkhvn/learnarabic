@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap');
 
-/* Urdu letters inside English text (tips, notes, titles) use Nastaliq a size up, so they stay readable at small sizes.
-   Same file the Google Fonts stylesheet above serves for Noto Nastaliq Urdu (Arabic subset). */
+/* Arabic letters inside English text (tips, notes, titles) use Naskh a size up, so the vowel marks stay readable at small sizes.
+   Same file the Google Fonts stylesheet above serves for Noto Naskh Arabic (Arabic subset). */
 @font-face {
-  font-family: 'Urdu Inline';
+  font-family: 'Arabic Inline';
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/notonastaliqurdu/v23/LhW4MUPbN-oZdNFcBy1-DJYsEoTq5pu3SvoMGdX1OW12.woff2) format('woff2');
-  size-adjust: 135%;
+  src: url(https://fonts.gstatic.com/s/notonaskharabic/v44/RrQKbpV-9Dd1b1OAGA6M9PkyDuVBeN2DHV20Lg.woff2) format('woff2');
+  size-adjust: 120%;
   unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFC;
 }
 
@@ -19,7 +19,7 @@
 
 @layer base {
   html {
-    font-family: 'Nunito', 'Urdu Inline', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'Nunito', 'Arabic Inline', ui-sans-serif, system-ui, sans-serif;
   }
 
   body {
@@ -62,6 +62,6 @@
 .sc-rain { animation: sc-rain 0.9s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .sc-bob, .sc-sway, .sc-drift, .sc-pulse, .sc-rain { animation: none; } }
 
-/* Urdu text: each run takes its direction from its first letter (Urdu → right-to-left), and Nastaliq needs taller lines. */
-.font-urdu { unicode-bidi: plaintext; line-height: 1.9; }
-.font-urdu.leading-none, .font-urdu.leading-tight, .font-urdu.leading-snug { line-height: 1.8; }
+/* Arabic text: each run takes its direction from its first letter (Arabic → right-to-left), and the vowel marks need taller lines. */
+.font-arabic { unicode-bidi: plaintext; line-height: 1.8; }
+.font-arabic.leading-none, .font-arabic.leading-tight, .font-arabic.leading-snug { line-height: 1.7; }

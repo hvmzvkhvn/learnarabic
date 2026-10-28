@@ -10,7 +10,7 @@ export default function Words() {
 
   return (
     <div className="py-2">
-      <h1 className="text-3xl font-extrabold text-primary">Urdu Words</h1>
+      <h1 className="text-3xl font-extrabold text-primary">Arabic Words</h1>
       <p className="mb-4 text-ink/60">الفاظ — pick a topic.</p>
 
       <div className="-mx-5 mb-6 flex gap-2 overflow-x-auto px-5 pb-2">
@@ -34,8 +34,8 @@ export default function Words() {
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {active.words.map((w) => (
           <div key={w.bn + w.en} className="card flex flex-col items-center !p-4 text-center">
-            <span className="font-urdu text-4xl">{w.digit ?? w.emoji}</span>
-            <p className="mt-2 font-urdu text-2xl font-bold leading-snug text-primary">{w.bn}</p>
+            <span className="font-arabic text-4xl">{w.digit ?? w.emoji}</span>
+            <p className="mt-2 font-arabic text-2xl font-bold leading-snug text-primary">{w.bn}</p>
             {romanOn && <p className="text-sm font-extrabold text-ink">{w.roman}</p>}
             <p className="mb-1 text-xs text-ink/50">{w.en}</p>
             <Speaker text={w.bn} size="sm" label="Hear the word" />

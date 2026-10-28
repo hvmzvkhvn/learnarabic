@@ -1,16 +1,16 @@
 // What each age track offers. Everything that differs by age reads from here.
 //
 //   xp            XP, levels, streak, badges
-//   playful       big, bright, Sitara-style look and lenient tracing (5–7 and 8–12)
+//   playful       big, bright, Najma-style look and lenient tracing (5–7 and 8–12)
 //   garden        the 5–7 extras: levels are garden stages, badges are stickers, kid-sized game cards
 //   gentleStreak  a missed day pauses the streak instead of resetting it
 //   arcade        which games appear on the Play page
 //   stories       story chats
 //   treasure      a gentle, untimed treasure hunt at the end of a unit (ages 5–7)
 //   boss          a timed boss level at the end of a unit (ages 13–18)
-//   listenType    "listen and pick" and "type it in Urdu" exercises
+//   listenType    "listen and pick" and "type it in Arabic" exercises
 //   blitzSeconds  length of a Word Blitz round (0 = no timed games)
-//   explore       the Explore Pakistan map (13+)
+//   explore       the Explore map of the Arab world (13+)
 //   playbook      the Playbook tab: picture books, Look & Learn, Build the scene (all ages)
 //   storyboards   division storyboards on Explore + the 1905–1971 timeline (16+)
 //   trace         what gets traced: letters ('all' | n), signs, syllables, words (n per lesson), digits

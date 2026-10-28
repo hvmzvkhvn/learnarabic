@@ -33,7 +33,7 @@ function GameHome({ track, lessons, done, next, progress }) {
           <div className="flex items-center gap-4">
             <span className="animate-pop text-6xl">⭐</span>
             <div className="flex-1">
-              <p className="font-urdu text-left text-2xl font-bold text-primary">خوش آمدید!</p>
+              <p className="font-arabic text-left text-2xl font-bold text-primary">أَهْلًا وَسَهْلًا!</p>
               <p className="text-sm font-bold text-ink/70">
                 {track.emoji} {track.label} · ages {track.ages}
               </p>
@@ -49,7 +49,7 @@ function GameHome({ track, lessons, done, next, progress }) {
               <p className="text-xs font-extrabold uppercase tracking-wide text-ink/40">
                 {track.emoji} {track.label} · ages {track.ages}
               </p>
-              <h1 className="text-2xl font-extrabold text-primary">{done === 0 ? 'خوش آمدید — let’s begin' : 'Welcome back'}</h1>
+              <h1 className="text-2xl font-extrabold text-primary">{done === 0 ? 'أَهْلًا — let’s begin' : 'Welcome back'}</h1>
             </div>
             <div className="text-right">
               <p className="text-3xl font-extrabold text-primary">Lv {level.level}</p>
@@ -129,7 +129,7 @@ function PostcardCard() {
       <span className="text-4xl">{c.emoji}</span>
       <span className="flex-1">
         <span className="block text-lg font-extrabold leading-tight text-secondary">{got ? 'Postcard collected ✓' : "Today's postcard"}</span>
-        <span className="block text-sm font-bold text-ink/60">From <span className="font-urdu">{c.bn}</span> · {c.name}</span>
+        <span className="block text-sm font-bold text-ink/60">From <span className="font-arabic">{c.bn}</span> · {c.name}</span>
       </span>
       <span className="text-2xl text-secondary">▶</span>
     </Link>

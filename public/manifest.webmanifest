@@ -1,13 +1,13 @@
 {
-  "name": "Learn Urdu",
-  "short_name": "Learn Urdu",
-  "description": "Learn Urdu from the alphabet to real conversations, with audio, stories and games.",
+  "name": "Learn Arabic",
+  "short_name": "Learn Arabic",
+  "description": "Learn Arabic from the alphabet to real conversations, with audio, stories and games.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#FFFDF7",
-  "theme_color": "#0F6E4F",
+  "theme_color": "#24539A",
   "lang": "en",
   "categories": [
     "education",

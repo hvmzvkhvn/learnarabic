@@ -29,7 +29,7 @@ export default function Explore() {
   return (
     <div className="py-2">
       <Toasts />
-      <h1 className="text-3xl font-extrabold text-primary">Explore Pakistan 🗺️</h1>
+      <h1 className="text-3xl font-extrabold text-primary">Explore the Arab World 🗺️</h1>
       <p className="mb-3 text-ink/60">Tap a region to read about it, hear it and collect stamps.</p>
 
       <div className="card mb-4 flex items-center justify-around text-center !p-3">
@@ -42,7 +42,7 @@ export default function Explore() {
         selected={sel} onSelect={pick} unlocked={ex.unlocked} stamped={ex.regionStamped}
         cities={region && ex.unlocked(region) ? region.cities : []} activeCity={city?.id} onCity={(c) => setCity(c)}
       />
-      <p className="mt-2 text-center text-xs font-bold text-ink/40">Grey regions open as you finish lessons. Kashmir is disputed: Azad Kashmir (plain grey) and Gilgit-Baltistan are administered by Pakistan.</p>
+      <p className="mt-2 text-center text-xs font-bold text-ink/40">Grey regions open as you finish lessons.</p>
 
       <div className="mt-5"><Postcard ex={ex} /></div>
 
@@ -56,7 +56,7 @@ export default function Explore() {
           <div className="fixed inset-0 z-40 flex items-end justify-center bg-ink/40" onClick={() => setSel(null)}>
             <div className="animate-slideIn w-full max-w-xl rounded-t-[2rem] bg-background px-6 pb-28 pt-8 text-center shadow-2xl" onClick={(e) => e.stopPropagation()}>
               <p className="text-6xl">🔒</p>
-              <h2 className="mt-2 font-urdu text-3xl font-extrabold text-primary">{region.bn}</h2>
+              <h2 className="mt-2 font-arabic text-3xl font-extrabold text-primary">{region.bn}</h2>
               <p className="font-bold text-ink/60">{region.name}</p>
               <p className="mt-3 text-ink/70">Finish <b>{ex.needed(region)}</b> more {ex.needed(region) === 1 ? 'lesson' : 'lessons'} to unlock this region.</p>
               <button type="button" onClick={() => setSel(null)} className="btn-secondary mt-5 w-full">OK</button>
