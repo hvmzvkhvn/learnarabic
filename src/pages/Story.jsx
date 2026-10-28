@@ -3,7 +3,7 @@ import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { stories } from '../data/stories'
 import { allLessons } from '../curriculum/tracks'
 import { shuffle } from '../curriculum/text'
-import { useProgress, useTrack } from '../state/persist'
+import { useLearnerGender, useProgress, useTrack } from '../state/persist'
 import { useGame } from '../state/game'
 import { speak, stop, useSoundOn } from '../audio/audio'
 import Speaker from '../components/Speaker'
@@ -20,12 +20,44 @@ const STARS = { great: 3, ok: 2, rough: 1 }
 
 export default function Story() {
   const { storyId } = useParams()
+  const [gender, setGender] = useLearnerGender()
   const story = stories.find((s) => s.id === storyId)
   if (!story) return <Navigate to="/stories" replace />
-  return <Player key={storyId} story={story} />
+  if (!gender) return <AskGender onPick={setGender} />
+  return <Player key={`${storyId}:${gender}`} story={story} gender={gender} onGender={setGender} />
 }
 
-function Player({ story }) {
+/** Arabic says "you" differently to a boy and to a girl, so the characters need to know who they are talking to. */
+function AskGender({ onPick }) {
+  const navigate = useNavigate()
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-5 text-center">
+      <div className="card w-full max-w-sm">
+        <p className="text-5xl">💬</p>
+        <h1 className="mt-2 text-2xl font-extrabold text-primary">Who is playing?</h1>
+        <p className="mt-2 text-ink/70">
+          In Arabic, people talk to boys and girls a little differently: <span className="font-arabic font-bold">أَنْتَ</span> to a boy,{' '}
+          <span className="font-arabic font-bold">أَنْتِ</span> to a girl. The story characters will talk to you the right way.
+        </p>
+        <div className="mt-5 grid grid-cols-2 gap-3">
+          <button type="button" onClick={() => onPick('boy')} className="btn-primary flex-col !py-5">
+            <span className="text-4xl">👦</span>A boy
+          </button>
+          <button type="button" onClick={() => onPick('girl')} className="btn-secondary flex-col !py-5">
+            <span className="text-4xl">👧</span>A girl
+          </button>
+        </div>
+        <button type="button" onClick={() => navigate('/stories')} className="mt-4 text-sm font-bold text-ink/50">
+          Back to stories
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function Player({ story, gender, onGender }) {
+  // a node or reply option as said to (or by) this learner: girls get the `f` version where there is one
+  const as = (n) => (gender === 'girl' && n.f ? { ...n, ...n.f } : n)
   const [romanOn] = useRoman()
   const navigate = useNavigate()
   const [trackKey] = useTrack()
@@ -56,19 +88,20 @@ function Player({ story }) {
         await sleep(900)
         nodeId = n.next
       } else if (n.bn) {
+        const m = as(n)
         setTyping(n.who)
         await sleep(650)
         if (run.current !== id) return
         setTyping(null)
-        setLog((l) => (l.some((x) => x.key === nodeId) ? l : [...l, { key: nodeId, kind: 'npc', who: n.who, bn: n.bn, roman: n.roman, en: n.en }]))
+        setLog((l) => (l.some((x) => x.key === nodeId) ? l : [...l, { key: nodeId, kind: 'npc', who: n.who, bn: m.bn, roman: m.roman, en: n.en }]))
         const t = Date.now()
-        if (soundOn) await speak(n.bn)
+        if (soundOn) await speak(m.bn)
         await sleep(Math.max(250, 700 - (Date.now() - t)))
         nodeId = n.next
       } else if (n.choice) {
         await sleep(200)
         if (run.current !== id) return
-        setOptions(shuffle(n.choice))
+        setOptions(shuffle(n.choice.map(as)))
         return
       } else if (n.branch) {
         const m = meterRef.current
@@ -134,7 +167,7 @@ function Player({ story }) {
 
   const avatar = (who) => story.cast[who]?.emoji ?? '🧑'
   const name = (who) => story.cast[who]?.en ?? ''
-  const keyLines = (story.keys ?? []).map((k) => story.nodes[k]).filter((n) => n?.bn)
+  const keyLines = (story.keys ?? []).map((k) => story.nodes[k]).filter((n) => n?.bn).map(as)
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -166,6 +199,15 @@ function Player({ story }) {
               </span>
             </div>
           </div>
+          <button
+            type="button"
+            onClick={() => onGender(gender === 'girl' ? 'boy' : 'girl')}
+            aria-label={`Talking to a ${gender}. Tap to switch and restart.`}
+            title="Switch boy / girl (restarts the story)"
+            className="rounded-full bg-white px-2.5 py-2 text-lg shadow-sm"
+          >
+            {gender === 'girl' ? '👧' : '👦'}
+          </button>
           <button type="button" onClick={() => setShowEn((v) => !v)} className={`rounded-full px-3 py-2 text-xs font-extrabold shadow-sm ${showEn ? 'bg-white text-primary' : 'bg-ink/10 text-ink/50'}`}>
             EN
           </button>

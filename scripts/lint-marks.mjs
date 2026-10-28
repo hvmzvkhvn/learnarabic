@@ -1,5 +1,5 @@
 // Checks that every Arabic word in the curriculum carries vowel marks (tashkeel), since learners read fully vowelled text.
-// Single letters and Super challenges (which are meant to be read without help) are skipped.
+// Single letters are skipped.
 //
 //   npm run lint:marks
 import { createServer } from 'vite'
@@ -11,7 +11,7 @@ const server = await createServer({ root, server: { middlewareMode: true }, appT
 const { allItems } = await server.ssrLoadModule('/src/curriculum/bank.js')
 
 const issues = []
-const items = allItems().filter((it) => it.bn && it.kind !== 'letter' && !it.id.startsWith('super:'))
+const items = allItems().filter((it) => it.bn && it.kind !== 'letter')
 for (const it of items) {
   const bare = it.bn.split(/[\s،؛؟!.…"“”:]+/).filter((w) => /[ء-ي]{2,}/.test(w) && !/[ً-ْٰ]/.test(w))
   if (bare.length) issues.push(`${it.id}: no vowel marks on ${bare.join(' ')}`)

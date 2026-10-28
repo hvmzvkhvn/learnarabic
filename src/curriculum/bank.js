@@ -235,20 +235,20 @@ teenText.adult = {
 adultPassages.forEach((p) => add({ id: `fact:adult:lead:${p.key}`, kind: 'fact', section: 'Readings (18+) · English introductions', bn: '', roman: p.title, en: p.lead, art: p.emoji }))
 
 // Story beats: every NPC line and every reply option, so they are reviewed and recorded like everything else.
+// A line with a girl's version (`f`) gives a second beat, `…:f`.
 export const storyBeatIds = {}
 stories.forEach((st) => {
   storyBeatIds[st.id] = []
-  Object.entries(st.nodes).forEach(([nid, n]) => {
-    if (n.bn) {
-      storyBeatIds[st.id].push(
-        add({ id: `beat:${st.id}:${nid}`, kind: 'beat', section: `Story · ${st.title}`, speaker: n.who, speakerName: st.cast[n.who]?.en, bn: n.bn, roman: n.roman, en: n.en, tokens: n.bn.split(' ') }),
-      )
+  const beat = (id, x, speaker, speakerName) => {
+    storyBeatIds[st.id].push(add({ id, kind: 'beat', section: `Story · ${st.title}`, speaker, speakerName, bn: x.bn, roman: x.roman, en: x.en, tokens: x.bn.split(' ') }))
+    if (x.f) {
+      const en = `${x.en} (${speaker === 'you' ? 'a girl speaking' : 'to a girl'})`
+      storyBeatIds[st.id].push(add({ id: `${id}:f`, kind: 'beat', section: `Story · ${st.title}`, speaker, speakerName, bn: x.f.bn, roman: x.f.roman, en, tokens: x.f.bn.split(' ') }))
     }
-    ;(n.choice ?? []).forEach((opt, i) => {
-      storyBeatIds[st.id].push(
-        add({ id: `beat:${st.id}:${nid}:${i}`, kind: 'beat', section: `Story · ${st.title}`, speaker: 'you', speakerName: 'You (reply)', bn: opt.bn, roman: opt.roman, en: opt.en, tokens: opt.bn.split(' ') }),
-      )
-    })
+  }
+  Object.entries(st.nodes).forEach(([nid, n]) => {
+    if (n.bn) beat(`beat:${st.id}:${nid}`, n, n.who, st.cast[n.who]?.en)
+    ;(n.choice ?? []).forEach((opt, i) => beat(`beat:${st.id}:${nid}:${i}`, opt, 'you', 'You (reply)'))
   })
 })
 

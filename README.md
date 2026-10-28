@@ -9,16 +9,20 @@ npm install
 npm run dev
 ```
 
-## What is here (phase 1)
+## What is here (phases 1–2)
 
 Two tracks, both starting from the alphabet:
 
 - **Little Learners (5–7):** the letters in shape families, family words, numbers, colours, animals, food, body, around us, the Arab world, greetings, and the Family conversation units. Reviews are treasure hunts.
-- **Explorers (8–12):** all letters, hamza and special shapes (أ إ آ ى ؤ ئ لا), vowel marks (fatḥa, kasra, ḍamma, long vowels, sukuun, shadda, tanwiin), first words, vocabulary, sentences, present-tense verb patterns (أَنَا آكُلُ، أَنْتَ تَأْكُلُ، هُوَ يَأْكُلُ) and the Family units.
+- **Explorers (8–12):** all letters, hamza and special shapes (أ إ آ ى ؤ ئ لا), vowel marks (fatḥa, kasra, ḍamma, long vowels, sukuun, shadda, tanwiin), first words, vocabulary, sentences, present-tense verb patterns (أَنَا آكُلُ، أَنْتَ تَأْكُلُ، هُوَ يَأْكُلُ), the Family units and 4 story chats.
 
-The **Family** units are 14 conversations at home (mornings, school, food and the souq, the mosque and iftar, grandparents, play, manners), each in a short picture version for 5–7 and a longer one for 8–12. In place of Learn Urdu's آپ / تم lesson, the Family units teach **أَنْتَ or أَنْتِ** — the "you" for a boy or man and for a girl or woman.
+The **Family** units are 21 conversations at home (mornings, school, food and the souq, the mosque, iftar and Eid, grandparents, play and the beach, manners and the doctor), each in a short picture version for 5–7 and a longer one for 8–12. In place of Learn Urdu's آپ / تم lesson, the Family units teach **أَنْتَ or أَنْتِ** — the "you" for a boy or man and for a girl or woman.
 
-Still to come (stubbed, as Learn Urdu did in its phase 1): the 13–15, 16–18 and 18+ tracks, story chats, Super challenges, Explore the Arab World and the Playbook's books and scenes. Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
+**Story chats** (`src/data/stories.js`, 8–12): At the Sweet Shop, A New Friend at the Park, Grandma Comes to Visit and A Rainy Day with Mum, each with 3 endings. Because Arabic's "you" changes with the listener, a story first asks whether a boy or a girl is playing (saved as `lb.gender`; the 👦/👧 button in the story header switches and restarts). Lines said to the learner are written for a boy with a girl's version beside them (`f`), and both are in the content bank, so both get reviewed and recorded.
+
+Every 5–12 unit except the first 5–7 letter unit ends with a **Super challenge** (`src/data/super/`): real words from the letters taught so far for letter units, and longer sentences built only from words already taught for the rest.
+
+Still to come (stubbed, as Learn Urdu did): the 13–15, 16–18 and 18+ tracks, Explore the Arab World and the Playbook's books and scenes. Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
 
 ## How the curriculum is organised
 
@@ -53,8 +57,8 @@ Checkers:
 ```bash
 npm run lint:family     # the "you" matches the listener in every Family line; every word is vowelled
 npm run lint:marks      # every Arabic word in the curriculum carries vowel marks
-npm run lint:stories    # every story graph: links, dead ends, reachable endings (no stories yet)
-npm run lint:super      # Super challenges only use words already taught (no sets yet)
+npm run lint:stories    # every story graph: links, dead ends, reachable endings; girl's versions; the "you" in replies
+npm run lint:super      # Super challenges only use words already taught (prefixes like وَ الْ بِ and endings like -ي -كَ -ة are forgiven)
 ```
 
 ## Audio

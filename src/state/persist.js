@@ -87,6 +87,9 @@ const NO_REVIEW = {}
 /** 'young' (5–7) | 'older' (8–12) | null until chosen */
 export const useTrack = () => usePersistent('lb.track', null)
 
+/** 'boy' | 'girl' | null until asked. Arabic says "you" differently to a boy and a girl, so story characters need to know. */
+export const useLearnerGender = () => usePersistent('lb.gender', null)
+
 /** { [lessonId]: { stars } } — best stars per completed lesson */
 export function useProgress() {
   const [progress, setProgress] = usePersistent('lb.progress', NO_PROGRESS)
