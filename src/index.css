@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+/* Urdu letters inside English text (tips, notes, titles) use Nastaliq a size up, so they stay readable at small sizes.
+   Same file the Google Fonts stylesheet above serves for Noto Nastaliq Urdu (Arabic subset). */
+@font-face {
+  font-family: 'Urdu Inline';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notonastaliqurdu/v23/LhW4MUPbN-oZdNFcBy1-DJYsEoTq5pu3SvoMGdX1OW12.woff2) format('woff2');
+  size-adjust: 135%;
+  unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFC;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Nunito', 'Urdu Inline', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-ink antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-4 text-lg font-bold text-white shadow-md transition active:scale-95 hover:brightness-110 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-secondary px-6 py-4 text-lg font-bold text-white shadow-md transition active:scale-95 hover:brightness-110 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .card {
+    @apply rounded-3xl bg-white p-6 shadow-md;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border-2 border-primary/20 bg-white px-4 py-3 text-base text-ink placeholder:text-ink/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30;
+  }
+
+  .gentle-error {
+    @apply rounded-2xl bg-error/10 px-4 py-3 text-sm font-semibold text-error;
+  }
+}
+
+/* Scene illustrations (src/art/Scene.jsx) */
+@keyframes sc-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes sc-sway { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+@keyframes sc-drift { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(14px); } }
+@keyframes sc-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+@keyframes sc-rain { from { transform: translateY(-10px); opacity: 0; } 30% { opacity: 1; } to { transform: translateY(26px); opacity: 0; } }
+.sc-bob { animation: sc-bob 2.4s ease-in-out infinite; }
+.sc-sway { animation: sc-sway 3s ease-in-out infinite; }
+.sc-drift { animation: sc-drift 9s ease-in-out infinite; }
+.sc-pulse { animation: sc-pulse 1.8s ease-in-out infinite; }
+.sc-rain { animation: sc-rain 0.9s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .sc-bob, .sc-sway, .sc-drift, .sc-pulse, .sc-rain { animation: none; } }
+
+/* Urdu text: each run takes its direction from its first letter (Urdu → right-to-left), and Nastaliq needs taller lines. */
+.font-urdu { unicode-bidi: plaintext; line-height: 1.9; }
+.font-urdu.leading-none, .font-urdu.leading-tight, .font-urdu.leading-snug { line-height: 1.8; }
