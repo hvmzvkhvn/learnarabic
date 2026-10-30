@@ -29,6 +29,13 @@ The **Family** units are 57 conversations at home in 7 units: mornings (bath tim
 
 Every unit except the first 5–7 letter unit ends with a **Super challenge** (`src/data/super/`): real words from the letters taught so far for letter units, and longer sentences built only from words already taught for the rest.
 
+**How Arabic Works** (`src/data/grammar.js`, `src/curriculum/gems.js`), a unit for 8–12 and every older track, after the verb lessons. It covers three things the Bangla and Urdu apps never needed:
+- **Sun and moon letters:** when the ل of الْ is heard (الْقَمَر) and when it melts into a doubled letter (الشَّمْس). Ten new words are sorted without transliteration, so the learner reads the shadda.
+- **Roots and patterns:** ك ت ب، د ر س، ل ع ب، س ج د, with the فَاعِل "doer" and مَـ "place" patterns, then "Root Detective" questions.
+- **One, two, many:** the dual (كِتَابَانِ) beside broken and sound plurals (كُتُب، مُعَلِّمُونَ، سَيَّارَات).
+
+Each topic is taught as ordinary word lessons and then practised in a new `pick` lesson ("choose the right one"). Each unit has a review or boss level and a Super challenge.
+
 **Playbook** (`src/data/playbook/`, all ages): 6 picture books for 5–7 (Sara's morning, Grandpa's farm, a rainy day, my animals, the souq, Eid morning) and 6 for 8–15 (a felucca on the Nile, Ramadan nights, the fisherman, Grandma's olive village, our school, a trip to the desert); Look & Learn (farm, room, souq, classroom, city, desert); Build the scene (farm, night, desert, river); and for 16+ a storyboard for every Explore region plus "A journey through history" (622–1971). No Playbook line speaks to the reader as "you", so none needs a girl's version. The art reuses the scene engine with a desert backdrop and new sprites: pyramids, a Ramadan lantern, a dallah coffee pot, a bowl of dates and a grandmother (`src/art/`).
 
 Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.

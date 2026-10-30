@@ -158,3 +158,16 @@ export const familySets = {
     ],
   },
 }
+
+// "How Arabic Works" (sun and moon letters, roots, one / two / many), used by every track from 8–12 up.
+export const gemsSet = {
+  label: 'How Arabic Works',
+  items: [
+    ['الشَّمْسُ فِي الصَّبَاحِ، وَالْقَمَرُ فِي اللَّيْلِ.', 'The sun in the morning, and the moon at night.'],
+    ['عِنْدِي قَلَمَانِ وَكِتَابَانِ فِي الْمَدْرَسَةِ.', 'I have two pens and two books at school.'],
+    ['الْأَوْلَادُ فِي الْمَلْعَبِ، وَالْمُعَلِّمُونَ فِي الْمَكْتَبِ.', 'The children are on the pitch, and the teachers are in the office.'],
+    ['الرَّجُلُ يَشْرَبُ الْحَلِيبَ، وَالْوَلَدُ يَأْكُلُ التَّمْرَ.', 'The man drinks the milk, and the boy eats the dates.'],
+    ['فِي الْمَكْتَبَةِ كُتُبٌ، وَفِي الْمَسْجِدِ سَجَّادَةٌ.', 'There are books in the library, and a prayer mat in the mosque.'],
+  ],
+}
+

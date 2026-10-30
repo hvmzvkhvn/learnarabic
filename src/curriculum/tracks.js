@@ -3,6 +3,7 @@
 // kind: letters | signs | words | sentences | forms | review
 import { chunk } from './text'
 import { lessonsFrom, withReview, unit, catLessons, byBn } from './build'
+import { gemLessons } from './gems'
 import { FEATURES } from './features'
 import { buildTeenTracks } from './teenTracks'
 import { stories } from '../data/stories'
@@ -161,6 +162,7 @@ const older = {
     ]),
     unit('o-sent', 'Sentences', '💬', 'Understand and build real sentences', sentenceUnitLessons()),
     unit('o-verbs', 'Verb Patterns', '🧩', 'How verbs change with أَنَا، أَنْتَ، هُوَ', verbLessons()),
+    unit('o-gems', 'How Arabic Works', '🧠', 'Sun and moon letters, roots and patterns, one–two–many', withReview('o-gems', 'How Arabic Works', gemLessons('o'))),
     unit('o-arab', 'The Arab World', '🌍', 'Deserts, souqs, cities and culture', catLessons('o-arab', 'arab-world', 6)),
   ],
 }

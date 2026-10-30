@@ -1,4 +1,5 @@
 // Super challenges for the 16–18 track (Pathfinders), keyed by unit id.
+import { gemsSet } from './shared'
 import { exploreSuperSet } from './explore'
 import { teenShared } from './teen'
 
@@ -40,5 +41,6 @@ export const seniorSuper = {
     ],
   },
   'p-grammar': teenShared.grammar,
+  'p-gems': gemsSet,
   'p-explore': exploreSuperSet,
 }

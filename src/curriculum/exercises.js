@@ -459,6 +459,19 @@ export function buildLesson(lesson, trackKey) {
     return { learn: [], exercises: shuffle(exercises) }
   }
 
+  // "Choose the right one" (How Arabic Works): like polite, but the stem is a word or a picture that may be heard.
+  if (lesson.kind === 'pick') {
+    const exercises = (lesson.picks ?? []).map((c) => {
+      const face = (id) => {
+        const it = get(id)
+        return { bn: it.bn, roman: it.roman }
+      }
+      const options = shuffle([face(c.rightId), ...c.wrongIds.map(face)])
+      return { id: nextId(), type: 'choice', itemId: c.rightId, title: c.title, stem: c.stem, options, answer: options.findIndex((o) => o.bn === get(c.rightId).bn) }
+    })
+    return { learn: [], exercises: shuffle(exercises) }
+  }
+
   if (lesson.kind === 'super') return { learn: [], exercises: superExercises((lesson.superIds ?? []).map(get).filter(Boolean), trackKey) }
 
   if (lesson.kind === 'story') return { learn: [], exercises: [] }

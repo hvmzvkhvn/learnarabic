@@ -1,7 +1,7 @@
 // Super challenges for the 8–12 track (Explorers), keyed by unit id. Each item is [Arabic, English]; never transliterated.
 // Letter units (script: true) use only letters taught so far; the rest are longer sentences built from words
 // already taught (checked by `npm run lint:super`). Shared sets live in ./shared.js.
-import { shared, familySets } from './shared'
+import { shared, familySets, gemsSet } from './shared'
 
 export const olderSuper = {
   'o-l1': {
@@ -102,5 +102,6 @@ export const olderSuper = {
       ['أَنَا آكُلُ التَّمْرَ، ثُمَّ أَنَامُ قَلِيلًا.', 'I eat dates, then I sleep a little.'],
     ],
   },
+  'o-gems': gemsSet,
   'o-arab': shared.arab,
 }

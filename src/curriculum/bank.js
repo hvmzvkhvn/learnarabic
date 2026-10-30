@@ -2,6 +2,7 @@
 // each with a stable id. Lessons only refer to ids, so one correction fixes everywhere.
 import { letterGroups, vowelSigns, aspirates } from '../data/alphabet'
 import { wordCategories } from '../data/words'
+import { grammarWordCategories } from '../data/grammar'
 import { sentenceGroups, verbs, pronounForms } from '../data/sentences'
 import { roster, phrases, scenes, politeYoung, politeOlder, unitLayout, ADDRESS_TIP } from '../data/family'
 import { conjuncts } from '../data/conjuncts'
@@ -44,7 +45,8 @@ export const syllableIdsBySign = vowelSigns.map((s, i) =>
 // ---- Words ---------------------------------------------------------------
 export const wordIdsByCat = {}
 export const categoryMeta = {}
-wordCategories.forEach((c) => {
+const allWordCategories = [...wordCategories, ...grammarWordCategories]
+allWordCategories.forEach((c) => {
   categoryMeta[c.key] = { title: c.title, emoji: c.emoji, visual: Boolean(c.visual), note: c.note }
   wordIdsByCat[c.key] = c.words.map((w) =>
     add({

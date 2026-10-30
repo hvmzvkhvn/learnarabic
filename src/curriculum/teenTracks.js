@@ -17,6 +17,7 @@ import {
 } from './bank'
 import { stories } from '../data/stories'
 import { lessonsFrom, unit, byBn, boss } from './build'
+import { gemLessons } from './gems'
 import { chunk } from './text'
 import { verbs } from '../data/sentences'
 import { tenseVerbs } from '../data/teenSentences'
@@ -111,6 +112,9 @@ const fastReading = (p) =>
     ...lessonsFrom(`${p}-conj`, 'Joined letters', '🔗', 'letters', conjunctIds, 6, { tip: TIPS.conjuncts }),
     ...lessonsFrom(`${p}-read`, 'Read it!', '📖', 'words', readWordIds(), 9, { cat: 'mixed', tip: 'Letters change shape when they join. Sound out each letter with its vowel mark, then say the whole word.' }),
   ])
+// Sun and moon letters, roots and patterns, one / two / many (src/curriculum/gems.js)
+const gemsUnit = (p, big) =>
+  bossUnit(`${p}-gm`, `${p}-gems`, 'Roots, Sun Letters & the Dual', '🧠', 'Three things that make Arabic Arabic', gemLessons(p, { big }))
 const grammarUnit = (p) =>
   bossUnit(`${p}-g`, `${p}-grammar`, 'Grammar in Action', '🧩', 'Verbs and tenses you can use right away', [
     ...wordsE(`${p}-vb`, 'verbs', 6, '🏃', 'Action Words'),
@@ -201,6 +205,7 @@ export function buildTeenTracks() {
         ...wordsE('v-tc', 'tech', 6, '📱', 'Phones & Tech'),
         ...wordsE('v-sp2', 'sports', 8, '⚽', 'Football & Sports'),
       ]),
+      gemsUnit('v', false),
     ],
   }
 
@@ -264,6 +269,7 @@ export function buildTeenTracks() {
         ...sentences('p-pv', 'proverbs', 4),
       ]),
       grammarUnit(p),
+      gemsUnit(p, true),
     ],
   }
 
@@ -362,6 +368,7 @@ export function buildTeenTracks() {
         ...storyLessons(a, 'adult', ['cousin']),
       ]),
       grammarUnit(a),
+      gemsUnit(a, true),
       exploreUnit('a'),
     ],
   }

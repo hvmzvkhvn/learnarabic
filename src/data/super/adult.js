@@ -1,4 +1,5 @@
 // Super challenges for the 18+ track (Wayfarers), keyed by unit id.
+import { gemsSet } from './shared'
 import { exploreSuperSet } from './explore'
 import { teenShared } from './teen'
 
@@ -60,5 +61,6 @@ export const adultSuper = {
     ],
   },
   'a-grammar': teenShared.grammar,
+  'a-gems': gemsSet,
   'a-explore': exploreSuperSet,
 }

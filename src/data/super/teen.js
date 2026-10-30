@@ -1,5 +1,6 @@
 // Super challenges for the 13–15 track (Voyagers), keyed by unit id. Sets used by the 16–18 and 18+ tracks too are
 // exported as `teenShared`.   'unit-id': { label, script?: true (letters only), items: [['Arabic', 'English'], …] }
+import { gemsSet } from './shared'
 import { exploreSuperSet } from './explore'
 
 const set = (label, items, script) => ({ label, items, ...(script ? { script: true } : {}) })
@@ -74,5 +75,6 @@ export const teenSuper = {
   ]),
   'v-history': teenShared.history,
   'v-grammar': teenShared.grammar,
+  'v-gems': gemsSet,
   'v-explore': exploreSuperSet,
 }

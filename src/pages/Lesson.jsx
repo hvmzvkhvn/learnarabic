@@ -212,6 +212,8 @@ function Player({ lesson, unit, track }) {
                     ? `${built.text.lines.length} lines to read and understand`
                     : lesson.kind === 'polite'
                       ? 'Learn who gets which "you"'
+                      : lesson.kind === 'pick'
+                        ? `${built.exercises.length} questions: choose the right one`
                       : `${built.learn.length} new thing${built.learn.length === 1 ? '' : 's'} to learn`}
           </p>
           {lesson.tip && <p className="mx-auto mt-5 max-w-sm rounded-2xl bg-accent/30 px-4 py-3 text-left text-sm font-semibold">💡 {lesson.tip}</p>}
