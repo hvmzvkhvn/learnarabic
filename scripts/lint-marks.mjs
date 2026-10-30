@@ -10,7 +10,6 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const server = await createServer({ root, server: { middlewareMode: true }, appType: 'custom', logLevel: 'error' })
 const { allItems } = await server.ssrLoadModule('/src/curriculum/bank.js')
 const PB = await server.ssrLoadModule('/src/data/playbook/index.js')
-const G = await server.ssrLoadModule('/src/data/grammar.js')
 
 const issues = []
 const playbook = [
@@ -18,8 +17,7 @@ const playbook = [
   ...PB.allWords().map((w) => ({ id: `Playbook word ${w.en}`, bn: w.bn })),
   ...[...PB.youngBooks, ...PB.olderBooks, ...PB.lookScenes, ...PB.buildTasks].map((b) => ({ id: `Playbook title ${b.title.en}`, bn: b.title.bn })),
 ]
-const grammar = G.sunMoonPicks.map((c) => ({ id: `Sun or moon: ${c.roman}`, bn: c.stem.bn }))
-const items = [...allItems().filter((it) => it.bn && it.kind !== 'letter'), ...playbook, ...grammar]
+const items = [...allItems().filter((it) => it.bn && it.kind !== 'letter'), ...playbook]
 for (const it of items) {
   const bare = it.bn.split(/[\s،؛؟!.…"“”:]+/).filter((w) => /[ء-ي]{2,}/.test(w) && !/[ً-ْٰ]/.test(w))
   if (bare.length) issues.push(`${it.id}: no vowel marks on ${bare.join(' ')}`)

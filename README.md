@@ -70,7 +70,7 @@ Arabic-specific details:
 - Month names are the ones used in Egypt, North Africa and the Gulf; the note on that unit mentions the Levantine names.
 - Stroke guides are generated from the font (right to left, body first) and stay hidden until approved on `/review/strokes`.
 
-**Reviewing content:** open `/review`, mark each item, then use *Copy corrections* or *Download as JSON*. An Arabic teacher should check the vowelling before launch.
+**Reviewing content:** open `/review`, mark each item, then use *Copy corrections* or *Download as JSON*. An Arabic teacher should check the vowelling before launch. For a teacher who would rather work on paper or in a spreadsheet, `npm run review:export` writes `review/arabic-review.csv` and a printable `review/arabic-review.html`. Both hold every Arabic item, grouped by section, with a box for corrections and each item's id, so a correction can be found again in the code.
 
 **Address rules** (Family unit): Sara is a girl, so everyone says أَنْتِ / -كِ to her and words describing her end in -ة (أَنَا جَاهِزَةٌ). She says أَنْتَ / -كَ to Dad, Grandpa, Uncle, Yusuf and the shopkeeper, and أَنْتِ / -كِ to Mum, Grandma and Layla. Respect for elders comes from يَا أَبِي، يَا جَدِّي and مِنْ فَضْلِكَ, not a special pronoun.
 

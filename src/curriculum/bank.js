@@ -2,7 +2,7 @@
 // each with a stable id. Lessons only refer to ids, so one correction fixes everywhere.
 import { letterGroups, vowelSigns, aspirates } from '../data/alphabet'
 import { wordCategories } from '../data/words'
-import { grammarWordCategories } from '../data/grammar'
+import { grammarWordCategories, sunMoonPicks } from '../data/grammar'
 import { sentenceGroups, verbs, pronounForms } from '../data/sentences'
 import { roster, phrases, scenes, politeYoung, politeOlder, unitLayout, ADDRESS_TIP } from '../data/family'
 import { conjuncts } from '../data/conjuncts'
@@ -295,6 +295,11 @@ export const playbookIds = playbookLines().map((x) =>
 )
 export const playbookWordIds = playbookWords().map((w) =>
   add({ id: `pbw:${w.bn}`, kind: 'word', section: 'Playbook · Look & Learn words', cat: 'playbook', bn: w.bn, roman: w.roman, en: w.en, art: w.e }),
+)
+
+// ---- How Arabic Works: the words sorted in "Sun or Moon?" (shown only as questions, so they get audio and review here) ---
+export const sunMoonTestIds = sunMoonPicks.map((c) =>
+  add({ id: `gt:${c.stem.bn}`, kind: 'word', section: 'How Arabic Works · Sun or Moon? test words', cat: 'sunmoon-test', bn: c.stem.bn, roman: c.roman, en: c.en }),
 )
 
 export const allItems = () => Array.from(bank.values())

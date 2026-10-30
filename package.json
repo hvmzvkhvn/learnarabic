@@ -12,7 +12,8 @@
     "lint:family": "node scripts/lint-family.mjs",
     "lint:marks": "node scripts/lint-marks.mjs",
     "lint:stories": "node scripts/lint-stories.mjs",
-    "lint:super": "node scripts/lint-super.mjs"
+    "lint:super": "node scripts/lint-super.mjs",
+    "review:export": "node scripts/export-review.mjs"
   },
   "dependencies": {
     "@breezystack/lamejs": "^1.2.7",

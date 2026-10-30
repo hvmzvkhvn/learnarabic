@@ -130,6 +130,7 @@ const SUN = ['sun', 'الشَّمْس']
 const MOON = ['moon', 'الْقَمَر']
 export const sunMoonPicks = sortWords.map(([bn, roman, en]) => ({
   roman,
+  en,
   title: `Sun letter or moon letter? (${en})`,
   stem: { bn }, // no transliteration: "an-nuur" would give the answer away; look for the shadda instead
   right: isSun(bn) ? SUN : MOON,
