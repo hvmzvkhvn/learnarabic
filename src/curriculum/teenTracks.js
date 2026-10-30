@@ -169,7 +169,7 @@ export function buildTeenTracks() {
       bossUnit('v-t', 'v-travel', 'Getting Around', '🚕', 'Travel, directions and asking for help', [
         ...wordsE('v-trv', 'travel', 9, '✈️', 'Travel & Directions'),
         ...sentences('v-ts', 'travel', 4),
-        ...storyLessons(v, 'teen', ['taxi']),
+        ...storyLessons(v, 'teen', ['taxi', 'lostphone']),
       ]),
       bossUnit('v-d', 'v-daily', 'Everyday Life', '☀️', 'Days, months, time, food and describing things', [
         ...wordsE('v-day', 'days', 7, '📅', 'Days of the Week'),
@@ -204,6 +204,7 @@ export function buildTeenTracks() {
         ...sentences('v-pv', 'proverbs', 4),
         ...wordsE('v-tc', 'tech', 6, '📱', 'Phones & Tech'),
         ...wordsE('v-sp2', 'sports', 8, '⚽', 'Football & Sports'),
+        ...storyLessons(v, 'teen', ['bigmatch']),
       ]),
       gemsUnit('v', false),
     ],
@@ -240,7 +241,7 @@ export function buildTeenTracks() {
         ...wordsE('p-trv', 'travel', 9, '✈️', 'Travel & Directions'),
         ...sentences('p-ts', 'travel', 4),
         ...wordsE('p-tc', 'tech', 6, '📱', 'Phones & Tech'),
-        ...storyLessons(p, 'senior', ['oldcity']),
+        ...storyLessons(p, 'senior', ['oldcity', 'pharmacy']),
       ]),
       bossUnit('p-st', 'p-study', 'Study, Work & Dreams', '🎓', 'School, careers, feelings and opinions', [
         ...wordsE('p-sch', 'school', 8, '🎓', 'School, Study & Work'),
@@ -248,7 +249,7 @@ export function buildTeenTracks() {
         ...sentences('p-op', 'opinions', 4),
         ...wordsE('p-sp2', 'sports', 8, '⚽', 'Football & Sports'),
         ...wordsE('p-rst', 'restaurant', 8, '🍽️', 'Eating Out'),
-        ...storyLessons(p, 'senior', ['cafedebate']),
+        ...storyLessons(p, 'senior', ['cafedebate', 'interview']),
       ]),
       bossUnit('p-c', 'p-celebrate', 'Celebrations & Weddings', '🎉', 'Eid, Ramadan and weddings', [
         ...wordsE('p-cel', 'celebrate', 7, '🎉', 'Celebrations & Weddings'),
@@ -329,13 +330,14 @@ export function buildTeenTracks() {
         ...sentences('a-wks', 'awork', 7),
         ...words('a-bk', 'bank', 6, 'Bank, Forms & Documents'),
         ...sentences('a-bks', 'abank', 6),
-        ...storyLessons(a, 'adult', ['bankstory']),
+        ...storyLessons(a, 'adult', ['bankstory', 'interview']),
       ]),
       bossUnit('a-h', 'a-health', 'Health, Study & Eating Out', '🩺', 'The doctor, school and work, the restaurant', [
         ...words('a-hl', 'health', 6, 'Health & the Doctor'),
         ...sentences('a-hls', 'ahealth', 6),
         ...wordsE('a-sch', 'school', 8, '🎓', 'School, Study & Work'),
         ...wordsE('a-rst', 'restaurant', 8, '🍽️', 'Eating Out'),
+        ...storyLessons(a, 'adult', ['pharmacy']),
       ]),
       bossUnit('a-p', 'a-politics', 'News, Politics & the Economy', '📰', 'The words behind the headlines, and how the economy works', [
         ...words('a-pol', 'politics', 6, 'Government & Politics'),
