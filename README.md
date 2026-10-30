@@ -68,7 +68,7 @@ Arabic-specific details:
 - Typing answers ignore vowel marks and tatweel, and accept ا for أ إ آ, ي for ى and ه for ة.
 - Numbers use the Arabic-Indic digits ٠١٢٣٤٥٦٧٨٩.
 - Month names are the ones used in Egypt, North Africa and the Gulf; the note on that unit mentions the Levantine names.
-- Stroke guides are generated from the font (right to left, body first) and stay hidden until approved on `/review/strokes`.
+- Stroke guides are generated from the font (right to left, body first) and stay hidden until approved on `/review/strokes`. 34 letters and shapes, 7 digits and 5 simple joins are approved. The corrections for س ش ص ض ع غ أ إ آ are in `src/data/strokeFixes.js`. Still hidden until a teacher checks them: ه ء لا, the digits ٣ ٧ ٨, the harder joins, the vowel signs and whole words.
 
 **Reviewing content:** open `/review`, mark each item, then use *Copy corrections* or *Download as JSON*. An Arabic teacher should check the vowelling before launch. For a teacher who would rather work on paper or in a spreadsheet, `npm run review:export` writes `review/arabic-review.csv` and a printable `review/arabic-review.html`. Both hold every Arabic item, grouped by section, with a box for corrections and each item's id, so a correction can be found again in the code.
 
