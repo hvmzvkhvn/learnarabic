@@ -25,8 +25,9 @@ const clean = (t) => t.replace(PUNCT, '').trim()
 // compare without vowel marks, with one alif, one yaa and taa marbuuta as haa
 const plain = (t) => clean(t).replace(MARKS, '').replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ة/g, 'ه')
 // High-frequency function words allowed in any sentence even if a unit never spelled them out
-// (and, in, on, from, to, with, this, he, she, I, no, yes, very, all, what, O (calling), or, then, but…).
-const GLUE = new Set('و في على من الي مع هذا هذه هو هي انا انت نحن هم لا نعم جدا كل ما يا او ثم لكن هل هناك هنا عند قد لقد الان اليوم ايضا قليلا كثيرا بعد قبل كان كانت ذلك تلك يوم ان'.split(' '))
+// (and, in, on, from, to, about, with, this, he, she, I, no, yes, very, only, all, what, O (calling), or, then, but…).
+// They may carry a prefix or ending too: لِكُلِّ (for every), عِنْدِي (I have).
+const GLUE = new Set('و في على من الي عن مع هذا هذه هو هي انا انت نحن هم لا نعم جدا فقط كل ما يا او ثم لكن هل هناك هنا عند قد لقد الان اليوم ايضا قليلا كثيرا بعد قبل كان كانت ذلك تلك يوم ان'.split(' '))
 const PREFIXES = ['وال', 'فال', 'بال', 'كال', 'لل', 'ال', 'و', 'ف', 'ب', 'ل', 'ك', 'س']
 const VERB_PREFIXES = ['ا', 'ت', 'ي', 'ن']
 const SUFFIXES = ['ها', 'هم', 'كم', 'نا', 'ني', 'ات', 'ون', 'ين', 'ان', 'وا', 'ك', 'ه', 'ي', 'ا', 'ت']
@@ -87,7 +88,7 @@ for (const [trackKey, track] of Object.entries(tracks)) {
         const bad = [...clean(bn).replace(MARKS, '')].filter((ch) => ch !== ' ' && !taughtChars.has(ch))
         if (bad.length) here(`letters not taught yet (${[...new Set(bad)].join(' ')}): ${bn}`)
       } else {
-        const unknown = bn.split(' ').map(clean).filter(Boolean).filter((w) => !/^[٠-٩0-9]+$/.test(w) && !GLUE.has(plain(w)) && ![...stems(w)].some((s) => taughtWords.has(s)))
+        const unknown = bn.split(' ').map(clean).filter(Boolean).filter((w) => !/^[٠-٩0-9]+$/.test(w) && ![...stems(w)].some((s) => GLUE.has(s) || taughtWords.has(s)))
         if (unknown.length) {
           unknownTotal += unknown.length
           console.log(`${strict ? 'ERROR' : 'note '} ${trackKey}/${u.id}: not taught yet → ${unknown.join(' ')}   in: ${bn}`)

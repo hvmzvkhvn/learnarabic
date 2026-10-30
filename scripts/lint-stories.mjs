@@ -1,7 +1,7 @@
 // Checks every story chat: all links resolve, nothing dead-ends, every ending can be reached, every word is vowelled,
 // and the "you" is right:
 //   • a character's line uses the boy's "you" (أَنْتَ، -كَ), and then must have a girl's version (`f`) that uses أَنْتِ، -كِ
-//   • the learner's replies use the "you" for the character's own gender (cast `female: true`). Wrong-on-purpose
+//   • the learner's replies use the "you" for the gender of the character who spoke last (cast `female: true`). Wrong-on-purpose
 //     replies, like كَيْفَ حَالُكَ to Grandma, are allowed when they lower the meter.
 //
 //   npm run lint:stories
@@ -28,6 +28,9 @@ for (const st of stories) {
   const refs = (n) => (n.next ? [n.next] : []).concat((n.choice ?? []).map((o) => o.next), (n.branch ?? []).map((r) => r.next))
 
   if (!nodes[st.start]) issues.push(`${st.id}: start node "${st.start}" missing`)
+  // who spoke the line that leads into each choice
+  const speakerBefore = {}
+  for (const n of Object.values(nodes)) if (n.bn && n.next && nodes[n.next]?.choice) speakerBefore[n.next] = n.who
   for (const [id, n] of Object.entries(nodes)) {
     if (!n.sys && !n.bn && !n.choice && !n.branch && !n.end) issues.push(`${at(id)}: empty node`)
     for (const r of refs(n)) if (!nodes[r]) issues.push(`${at(id)}: links to missing node "${r}"`)
@@ -45,8 +48,8 @@ for (const st of stories) {
         else if (saysYouTo(n.f.bn).male) issues.push(`${at(id)}: the boy's "you" in the girl's version → ${n.f.bn}`)
       }
     }
-    // the learner speaks to the character in the scene (stories have one character)
-    const other = Object.values(st.cast)[0]
+    // the learner replies to the character who spoke just before (a choice's `to` overrides it)
+    const other = st.cast[n.to ?? speakerBefore[id]] ?? Object.values(st.cast)[0]
     for (const [i, o] of (n.choice ?? []).entries()) {
       beats += o.f ? 2 : 1
       if (!o.bn || !o.roman || !o.en || typeof o.meter !== 'number') issues.push(`${at(id)}#${i}: option incomplete`)

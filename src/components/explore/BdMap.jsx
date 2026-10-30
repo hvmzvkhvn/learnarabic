@@ -1,14 +1,15 @@
 import { MAP, project } from '../../data/bdMap'
 import { exploreRegions } from '../../data/explore'
 
-// Where a region's name reads best (Islamabad is tiny, so its name sits beside it)
-const LABEL = { islamabad: { cx: 392, cy: 122 }, kp: { cx: 262, cy: 92 }, gb: { cx: 372, cy: 52 }, punjab: { cx: 300, cy: 215 } }
-const SHORT = { kp: 'Khyber Pakhtunkhwa', gb: 'Gilgit-Baltistan' }
+// Where a region's name reads best (the Levant is small, so its name sits out in the Mediterranean beside it)
+const LABEL = { levant: { cx: 268, cy: 40 }, iraq: { cx: 372, cy: 40 }, gulf: { cx: 372, cy: 100 }, nile: { cx: 252, cy: 128 }, maghreb: { cx: 130, cy: 80 }, southarabia: { cx: 390, cy: 160 } }
+const SHORT = { southarabia: 'Yemen & Oman', nile: 'Egypt & Sudan' }
+const SMALL = new Set(['levant', 'iraq', 'southarabia'])
 
 /** The regions as a tappable map. Locked ones are grey; stamped ones carry a tick. MAP.other is drawn plain grey. */
 export default function BdMap({ selected, onSelect, unlocked, stamped, cities = [], activeCity, onCity, labels = true, tint = {} }) {
   return (
-    <svg viewBox={`0 0 ${MAP.width} ${MAP.height}`} className="mx-auto w-full max-w-sm drop-shadow-sm" role="group" aria-label="Map of the Arab world">
+    <svg viewBox={`0 0 ${MAP.width} ${MAP.height}`} className="mx-auto w-full max-w-xl drop-shadow-sm" role="group" aria-label="Map of the Arab world">
       {Object.entries(MAP.other ?? {}).map(([id, o]) => <path key={id} d={o.d} fill="#E4E4DE" stroke="#fff" strokeWidth="1.6" strokeLinejoin="round" />)}
       {exploreRegions.map((r) => {
         const geo = { ...MAP.divisions[r.id], ...(LABEL[r.id] ?? {}) }
@@ -17,16 +18,20 @@ export default function BdMap({ selected, onSelect, unlocked, stamped, cities = 
         return (
           <g key={r.id} onClick={() => onSelect(r)} className="cursor-pointer" role="button" tabIndex={0} aria-label={`${r.name}${open ? '' : ' (locked)'}`} onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onSelect(r)}>
             <path d={geo.d} fill={tint[r.id] ?? (open ? r.color : '#CFCFC8')} fillOpacity={sel || tint[r.id] ? 1 : 0.72} stroke="#fff" strokeWidth={sel ? 3 : 1.6} strokeLinejoin="round" className="transition-all hover:fill-opacity-100" />
-            {labels && (
-              <>
-            <text x={geo.cx} y={geo.cy} textAnchor="middle" fontSize={r.id === 'islamabad' || r.id === 'gb' || r.id === 'kp' ? 12 : 15} fontWeight="800" fill="#fff" stroke="rgba(0,0,0,.35)" strokeWidth="0.6" paintOrder="stroke" style={{ pointerEvents: 'none' }}>
+          </g>
+        )
+      })}
+      {labels && exploreRegions.map((r) => {
+        const geo = { ...MAP.divisions[r.id], ...(LABEL[r.id] ?? {}) }
+        const open = unlocked(r)
+        return (
+          <g key={`label-${r.id}`} style={{ pointerEvents: 'none' }}>
+            <text x={geo.cx} y={geo.cy} textAnchor="middle" fontSize={SMALL.has(r.id) ? 11 : 13} fontWeight="800" fill="#2D2D2D" stroke="#fff" strokeWidth="3" paintOrder="stroke">
               {SHORT[r.id] ?? r.name}
             </text>
-            <text x={geo.cx} y={geo.cy + 17} textAnchor="middle" fontSize="13" style={{ pointerEvents: 'none' }}>
+            <text x={geo.cx} y={geo.cy + 15} textAnchor="middle" fontSize="12">
               {open ? (stamped(r) ? '✅' : '') : '🔒'}
             </text>
-              </>
-            )}
           </g>
         )
       })}

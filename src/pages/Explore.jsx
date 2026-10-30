@@ -42,7 +42,7 @@ export default function Explore() {
         selected={sel} onSelect={pick} unlocked={ex.unlocked} stamped={ex.regionStamped}
         cities={region && ex.unlocked(region) ? region.cities : []} activeCity={city?.id} onCity={(c) => setCity(c)}
       />
-      <p className="mt-2 text-center text-xs font-bold text-ink/40">Grey regions open as you finish lessons.</p>
+      <p className="mt-2 text-center text-xs font-bold text-ink/40">Grey regions open as you finish lessons. The pale grey areas are not Explore regions; the status of Western Sahara is disputed.</p>
 
       <div className="mt-5"><Postcard ex={ex} /></div>
 

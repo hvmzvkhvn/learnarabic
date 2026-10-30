@@ -9,20 +9,27 @@ npm install
 npm run dev
 ```
 
-## What is here (phases 1–2)
+## What is here (phases 1–3)
 
-Two tracks, both starting from the alphabet:
+Five tracks, each starting from the alphabet:
 
 - **Little Learners (5–7):** the letters in shape families, family words, numbers, colours, animals, food, body, around us, the Arab world, greetings, and the Family conversation units. Reviews are treasure hunts.
 - **Explorers (8–12):** all letters, hamza and special shapes (أ إ آ ى ؤ ئ لا), vowel marks (fatḥa, kasra, ḍamma, long vowels, sukuun, shadda, tanwiin), first words, vocabulary, sentences, present-tense verb patterns (أَنَا آكُلُ، أَنْتَ تَأْكُلُ، هُوَ يَأْكُلُ), the Family units and 4 story chats.
+- **Voyagers (13–15):** the script in three quick lessons, joined letters (`src/data/conjuncts.js`), teen vocabulary (travel, the souq, time, restaurant, film, history, feelings, tech, football, school, celebrations), the past and future tenses (ذَهَبْتُ / سَأَذْهَبُ with أَنَا، أَنْتَ، أَنْتِ), أَنْتَ / أَنْتِ in everyday speech, film scenes, poems, readings and proverbs.
+- **Pathfinders (16–18):** the same base, faster, with opinions, culture, more poems and readings.
+- **Wayfarers (18+):** a Script Fast-Track, then in-laws, work, banking, health, the news, politics, the economy and culture, the dialects (how Egyptian, Levantine, Gulf and Maghrebi speech differ from Fusha), and readings on Islam, the Golden Age, al-Andalus, the Ottomans, the Nahda, oil, the Arab Spring, faith, the arts and the diaspora (`src/data/adultText.js`).
+
+Poems (`src/data/teenText.js`): a traditional Medina song (طَلَعَ الْبَدْرُ عَلَيْنَا), Ahmad Shawqi, al-Shabbi's "The Will to Live" and al-Mutanabbi.
+
+**Explore the Arab World** (`/explore`, `src/data/explore.js`): 6 regions — Egypt & Sudan, the Levant, the Gulf (open from the start), the Maghreb, Iraq, and Yemen & Oman (opening as lessons are finished). Each has an introduction, famous things, then and now, things made there, a timeline, the economy, 4 cities with words to collect, and longer notes for 18+. The map (`src/data/bdMap.js`) is generated from Natural Earth's 1:50m countries (public domain); Israel and Western Sahara are drawn in plain grey and are not Explore regions.
 
 The **Family** units are 21 conversations at home (mornings, school, food and the souq, the mosque, iftar and Eid, grandparents, play and the beach, manners and the doctor), each in a short picture version for 5–7 and a longer one for 8–12. In place of Learn Urdu's آپ / تم lesson, the Family units teach **أَنْتَ or أَنْتِ** — the "you" for a boy or man and for a girl or woman.
 
-**Story chats** (`src/data/stories.js`, 8–12): At the Sweet Shop, A New Friend at the Park, Grandma Comes to Visit and A Rainy Day with Mum, each with 3 endings. Because Arabic's "you" changes with the listener, a story first asks whether a boy or a girl is playing (saved as `lb.gender`; the 👦/👧 button in the story header switches and restarts). Lines said to the learner are written for a boy with a girl's version beside them (`f`), and both are in the content bank, so both get reviewed and recorded.
+**Story chats** (`src/data/stories.js`): 17 in all. For 8–12: At the Sweet Shop, A New Friend at the Park, Grandma Comes to Visit and A Rainy Day with Mum. For 13+: the new kid in Amman, the souq, a taxi, movie night, Ramadan, landing in a new city, the old city, a café debate, a wedding, Algeria 1962, a road trip, the bank and a cousin's visit. Because Arabic's "you" changes with the listener, a story first asks whether a boy or a girl is playing (saved as `lb.gender`; the 👦/👧 button in the story header switches and restarts). Lines said to the learner are written for a boy with a girl's version beside them (`f`), and both are in the content bank, so both get reviewed and recorded.
 
-Every 5–12 unit except the first 5–7 letter unit ends with a **Super challenge** (`src/data/super/`): real words from the letters taught so far for letter units, and longer sentences built only from words already taught for the rest.
+Every unit except the first 5–7 letter unit ends with a **Super challenge** (`src/data/super/`): real words from the letters taught so far for letter units, and longer sentences built only from words already taught for the rest.
 
-Still to come (stubbed, as Learn Urdu did): the 13–15, 16–18 and 18+ tracks, Explore the Arab World and the Playbook's books and scenes. Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
+Still to come (stubbed, as Learn Urdu did): the Playbook's books and scenes. Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
 
 ## How the curriculum is organised
 
@@ -31,6 +38,12 @@ src/data/alphabet.js       letters in shape families (with their spoken names), 
 src/data/words.js          word lists by topic
 src/data/sentences.js      sentences and present-tense verb patterns
 src/data/family.js         Family unit: phrases, أَنْتَ / أَنْتِ practice, conversations
+src/data/teenWords.js      13+ vocabulary
+src/data/teenSentences.js  13+ sentences, proverbs and the past / future tenses
+src/data/teenText.js       poems, readings and film scenes
+src/data/adultText.js      18+ words, sentences and readings
+src/data/explore.js        Explore the Arab World
+src/curriculum/teenTracks.js  the 13–15, 16–18 and 18+ tracks
 src/curriculum/bank.js     the content bank: every item gets a stable id
 src/curriculum/tracks.js   tracks → units → lessons (lists of item ids)
 src/curriculum/exercises.js  generates each lesson's practice from its items
@@ -58,7 +71,7 @@ Checkers:
 npm run lint:family     # the "you" matches the listener in every Family line; every word is vowelled
 npm run lint:marks      # every Arabic word in the curriculum carries vowel marks
 npm run lint:stories    # every story graph: links, dead ends, reachable endings; girl's versions; the "you" in replies
-npm run lint:super      # Super challenges only use words already taught (prefixes like وَ الْ بِ and endings like -ي -كَ -ة are forgiven)
+npm run lint:super      # (add -- --strict to fail on unknown words) Super challenges only use words already taught (prefixes like وَ الْ بِ and endings like -ي -كَ -ة are forgiven)
 ```
 
 ## Audio

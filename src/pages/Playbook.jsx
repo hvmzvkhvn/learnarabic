@@ -99,7 +99,7 @@ export default function Playbook() {
           <Tile to="/playbook/story/timeline" scene={timelineStory.panels[2].scene} id="t-timeline" title={{ bn: 'رِحْلَةٌ فِي التَّارِيخِ', en: timelineStory.title }} sub={`${timelineStory.panels.length} panels`} done={Boolean(read['story:timeline'])} />
           <Link to="/explore" className="flex flex-col items-center justify-center rounded-3xl bg-secondary/10 px-3 py-4 text-center font-extrabold text-secondary">
             <span className="text-4xl">🗺️</span>
-            Division storyboards
+            Region storyboards
             <span className="text-xs font-bold text-ink/50">Open a region on Explore → ▶ Watch the story</span>
           </Link>
         </Section>

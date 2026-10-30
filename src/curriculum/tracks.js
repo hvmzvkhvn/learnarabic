@@ -1,10 +1,10 @@
-// Curriculum: two tracks (5–7 and 8–12) built from the shared content bank. The 13–15, 16–18 and 18+ tracks
-// come in a later phase (Learn Urdu builds them in teenTracks.js).
+// Curriculum: the 5–7 and 8–12 tracks are built here; the 13–15, 16–18 and 18+ tracks in teenTracks.js.
 // A lesson is { id, title, emoji, kind, learn: [itemIds], practice?: [itemIds], tip?, cat? }.
 // kind: letters | signs | words | sentences | forms | review
 import { chunk } from './text'
 import { lessonsFrom, withReview, unit, catLessons, byBn } from './build'
 import { FEATURES } from './features'
+import { buildTeenTracks } from './teenTracks'
 import { stories } from '../data/stories'
 import {
   letterGroupIds,
@@ -199,9 +199,14 @@ const insertAfter = (units, id, extra) => units.splice(units.findIndex((u) => u.
 insertAfter(young.units, 'y-family', familyUnits('y', 'young'))
 insertAfter(older.units, 'o-people', familyUnits('o', 'older'))
 
+const { teen, senior, adult } = buildTeenTracks()
+
 // per-age features (XP, games, tracing…) live in features.js
 young.features = FEATURES.young
 older.features = FEATURES.older
+teen.features = FEATURES.teen
+senior.features = FEATURES.senior
+adult.features = FEATURES.adult
 
 // Ages 5–7: the end-of-unit review becomes a gentle, untimed treasure hunt.
 young.units.forEach((u) => {
@@ -222,16 +227,16 @@ const addStory = (track, prefix, unitId, storyId) => {
 stories.filter((st) => st.place?.older).forEach((st) => addStory(older, 'o', st.place.older, st.id))
 
 // Every unit that has a Super challenge set ends with that challenge.
-Object.entries({ young, older }).forEach(([, track]) => {
+Object.entries({ young, older, teen, senior, adult }).forEach(([, track]) => {
   track.units.forEach((u) => {
     const ids = superIdsByUnit[u.id]
     if (ids?.length) u.lessons.push({ id: `${u.id}-super`, title: 'Super challenge', emoji: '🦸', kind: 'super', learn: [], superIds: ids })
   })
 })
 
-export const tracks = { young, older }
+export const tracks = { young, older, teen, senior, adult }
 
-export const trackList = [young, older]
+export const trackList = [young, older, teen, senior, adult]
 export const allLessons = (trackKey) => (tracks[trackKey] ?? older).units.flatMap((u) => u.lessons)
 
 export function findLesson(id) {
