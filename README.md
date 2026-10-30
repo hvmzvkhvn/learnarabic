@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-## What is here (phases 1–3)
+## What is here (phases 1–4)
 
 Five tracks, each starting from the alphabet:
 
@@ -29,7 +29,9 @@ The **Family** units are 21 conversations at home (mornings, school, food and th
 
 Every unit except the first 5–7 letter unit ends with a **Super challenge** (`src/data/super/`): real words from the letters taught so far for letter units, and longer sentences built only from words already taught for the rest.
 
-Still to come (stubbed, as Learn Urdu did): the Playbook's books and scenes. Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
+**Playbook** (`src/data/playbook/`, all ages): 6 picture books for 5–7 (Sara's morning, Grandpa's farm, a rainy day, my animals, the souq, Eid morning) and 6 for 8–15 (a felucca on the Nile, Ramadan nights, the fisherman, Grandma's olive village, our school, a trip to the desert); Look & Learn (farm, room, souq, classroom, city, desert); Build the scene (farm, night, desert, river); and for 16+ a storyboard for every Explore region plus "A journey through history" (622–1971). No Playbook line speaks to the reader as "you", so none needs a girl's version. The art reuses the scene engine with a desert backdrop and new sprites: pyramids, a Ramadan lantern, a dallah coffee pot, a bowl of dates and a grandmother (`src/art/`).
+
+Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
 
 ## How the curriculum is organised
 
@@ -69,7 +71,7 @@ Checkers:
 
 ```bash
 npm run lint:family     # the "you" matches the listener in every Family line; every word is vowelled
-npm run lint:marks      # every Arabic word in the curriculum carries vowel marks
+npm run lint:marks      # every Arabic word in the curriculum and the Playbook carries vowel marks
 npm run lint:stories    # every story graph: links, dead ends, reachable endings; girl's versions; the "you" in replies
 npm run lint:super      # (add -- --strict to fail on unknown words) Super challenges only use words already taught (prefixes like وَ الْ بِ and endings like -ي -كَ -ة are forgiven)
 ```

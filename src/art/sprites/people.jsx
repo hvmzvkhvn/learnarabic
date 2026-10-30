@@ -73,6 +73,7 @@ const Boy = () => <Person scale={0.8} top={C.green} bottom={C.brown} />
 const Man = () => <Person top={C.navy} bottom={C.dgrey} />
 const Woman = () => <Person top={C.orange} dress long />
 const Elder = () => <Person scale={0.94} grey beard glasses top={C.white} lungi bottom={C.teal} />
+const Grandma = () => <Person scale={0.94} grey long glasses top={C.purple} dress />
 const Farmer = () => <Person hat top={C.green} lungi bottom="#E8DCC0" />
 const Teacher = () => <Person glasses top={C.purple} bottom={C.navy} hold="book" />
 const Worker = () => <Person scarf top={C.teal} bottom={C.dgrey} apron />
@@ -83,6 +84,7 @@ def('👦', Boy, 1.9)
 def('👨', Man, 1.9)
 def('👩', Woman, 1.9)
 def('👴', Elder, 1.9)
+def('👵', Grandma, 1.9)
 def('🧑‍🌾 👨‍🌾', Farmer, 1.9)
 def('🧑‍🏫', Teacher, 1.9)
 def('🧑‍🏭', Worker, 1.9)

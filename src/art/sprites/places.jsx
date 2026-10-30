@@ -259,6 +259,13 @@ def('vihara', () => (
   </g>
 ), 1.3)
 // Sixty Dome Mosque, Bagerhat: a wide low building crowned with many small domes
+def('pyramids', () => (
+  <g>
+    <path d="M4 90 L36 34 L68 90z" fill="#E2BE74" {...st} /><path d="M36 34 L68 90 H50z" fill="#C99F55" stroke="none" />
+    <path d="M44 90 L72 44 L98 90z" fill="#E8C886" {...st} /><path d="M72 44 L98 90 H84z" fill="#CFA762" stroke="none" />
+    <path d="M30 90 L46 64 L62 90z" fill="#D9B46A" {...st} />
+  </g>
+), 1.3)
 def('domes', () => (
   <g>
     <rect x="8" y="52" width="84" height="38" fill="#CBB98F" {...st} />

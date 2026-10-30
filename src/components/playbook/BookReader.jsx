@@ -49,7 +49,7 @@ export default function BookReader({ id, title, pages, mode = 'book', hideEnglis
     <div className="rounded-2xl bg-white px-4 py-3 shadow-sm">
       <div className="flex items-start gap-3">
         <div className="flex-1">
-          <p dir="rtl" className="font-arabic text-2xl font-bold leading-snug text-primary">
+          <p dir="rtl" className="font-arabic text-right text-2xl font-bold leading-snug text-primary">
             {pg.bn.split(' ').map((t, k) => (
               <button key={k} type="button" onClick={() => speak(t, { force: true })} className="me-1.5 rounded-lg px-0.5 transition hover:bg-primary/10 active:scale-95">{t}</button>
             ))}

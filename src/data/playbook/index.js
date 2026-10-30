@@ -2,7 +2,7 @@
 //   5–7   : picture books (one line a page), Look & Learn, Build the scene
 //   8–12  : picture books (longer), Look & Learn, Build the scene
 //   13–15 : the same as 8–12
-//   16+   : division storyboards (opened from Explore) and the 1905–1971 timeline, plus the books
+//   16+   : region storyboards (opened from Explore) and the history timeline (622–1971), plus the books
 import { youngBooks, olderBooks } from './books'
 import { lookScenes, buildTasks } from './scenes'
 import { regionStoryboards, timelineStory } from './storyboards'
@@ -19,8 +19,8 @@ export function allLines() {
   const book = (group, b) => b.pages.forEach((pg) => out.push({ group, bn: pg.bn, roman: pg.roman, en: pg.en }))
   youngBooks.forEach((b) => book('Playbook · picture books (5–7)', b))
   olderBooks.forEach((b) => book('Playbook · picture books (8–15)', b))
-  Object.values(regionStoryboards).forEach((s) => s.panels.forEach((pg) => out.push({ group: 'Playbook · division storyboards (16+)', bn: pg.bn, roman: pg.roman, en: pg.en })))
-  timelineStory.panels.forEach((pg) => out.push({ group: 'Playbook · 1905–1971 timeline (16+)', bn: pg.bn, roman: pg.roman, en: pg.en }))
+  Object.values(regionStoryboards).forEach((s) => s.panels.forEach((pg) => out.push({ group: 'Playbook · region storyboards (16+)', bn: pg.bn, roman: pg.roman, en: pg.en })))
+  timelineStory.panels.forEach((pg) => out.push({ group: 'Playbook · history timeline (16+)', bn: pg.bn, roman: pg.roman, en: pg.en }))
   return out
 }
 export function allWords() {

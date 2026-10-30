@@ -265,6 +265,37 @@ def('🇵🇰', () => (
     <path d="M72 27 l1.8 4.6 4.9 0.3 -3.8 3.1 1.2 4.8 -4.1 -2.7 -4.1 2.7 1.2 -4.8 -3.8 -3.1 4.9 -0.3z" fill={C.white} stroke="none" />
   </g>
 ))
+def('dates', () => ( // a bowl of dates
+  <g>
+    {[[30, 50], [44, 46], [58, 46], [72, 50], [38, 38], [52, 34], [64, 38]].map(([x, y]) => (
+      <ellipse key={`${x}-${y}`} cx={x} cy={y} rx="7" ry="11" fill="#7A3B1E" {...st} strokeWidth="1.6" />
+    ))}
+    <path d="M14 56 H86 q-4 28 -36 30 q-32 -2 -36 -30z" fill={C.wood} {...st} />
+    <path d="M22 64 q28 8 56 0" stroke={C.brown} strokeWidth="2.5" fill="none" />
+  </g>
+), 1.1)
+def('🏮', () => ( // a Ramadan lantern (fanous)
+  <g>
+    <path d="M50 4 v8" stroke={O} strokeWidth="2.5" /><circle cx="50" cy="6" r="3" fill="none" stroke={O} strokeWidth="2" />
+    <path d="M36 20 L50 12 L64 20z" fill={C.orange} {...st} />
+    <path d="M32 20 H68 L74 34 L68 70 H32 L26 34z" fill={C.yellow} {...st} />
+    <path d="M38 26 H62 L66 36 L62 64 H38 L34 36z" fill="#FFF3B8" stroke="none" />
+    <path d="M50 26 V64 M34 36 H66" stroke={C.red} strokeWidth="2" />
+    <path d="M44 46 a6 6 0 1 0 8 -6 a4.5 4.5 0 1 1 -8 6z" fill={C.red} stroke="none" />
+    <path d="M32 70 H68 L60 82 H40z" fill={C.orange} {...st} />
+    <path d="M44 82 h12 l-6 8z" fill={C.red} {...st} />
+  </g>
+), 1.1)
+def('☕', () => ( // an Arabic coffee pot (dallah) with a small cup
+  <g>
+    <path d="M38 22 q12 -10 24 0 l-2 8 h-20z" fill={C.orange} {...st} /><circle cx="50" cy="12" r="3" fill={C.orange} {...st} />
+    <path d="M40 30 H60 q2 10 10 22 q10 18 -4 34 H34 q-14 -16 -4 -34 q8 -12 10 -22z" fill={C.yellow} {...st} />
+    <path d="M36 54 q14 6 28 0" stroke={C.orange} strokeWidth="3" fill="none" />
+    <path d="M38 36 q-16 -4 -26 -16 l6 -2 q10 10 22 12" fill={C.yellow} {...st} />
+    <path d="M62 40 q14 2 14 16 q0 12 -10 18" stroke={O} strokeWidth="3" fill="none" />
+    <path d="M76 78 h16 l-3 10 h-10z" fill={C.cream} {...st} />
+  </g>
+), 1.1)
 // ---- clothes ---------------------------------------------------------------------------------------------------
 def('👗', () => (
   <g>

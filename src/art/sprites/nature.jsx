@@ -313,9 +313,9 @@ def('🐧', () => (
 ))
 def('🐫', () => (
   <g>
-    <path d="M24 56 q6 -26 20 -20 q6 -22 18 -2 q12 -8 14 22 v24 h-8 v-20 h-30 v20 h-8z" fill="#D9B06B" {...st} />
-    <path d="M24 56 q-12 -10 -14 -26 q4 -4 10 2 q2 12 12 18z" fill="#D9B06B" {...st} />
-    <Eye x={14} y={32} r={1.6} /><path d="M70 40 q16 -2 14 8" stroke="#D9B06B" strokeWidth="5" fill="none" strokeLinecap="round" />
+    <path d="M24 56 q6 -26 20 -20 q6 -22 18 -2 q12 -8 14 22 v24 h-8 v-20 h-30 v20 h-8z" fill="#B07A45" {...st} />
+    <path d="M24 56 q-12 -10 -14 -26 q4 -4 10 2 q2 12 12 18z" fill="#B07A45" {...st} />
+    <Eye x={14} y={32} r={1.6} /><path d="M70 40 q16 -2 14 8" stroke="#B07A45" strokeWidth="5" fill="none" strokeLinecap="round" />
   </g>
 ))
 def('🐅', () => (

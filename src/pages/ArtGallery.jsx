@@ -16,7 +16,8 @@ const SAMPLES = [
   { bg: 'hills', time: 'day', items: [{ e: '👩‍🌾', x: 30, y: 72, s: 50 }, { e: '🍃', x: 70, y: 76, s: 40, anim: 'sway' }] },
   { bg: 'meadow', time: 'rain', items: [{ e: '☂️', x: 40, y: 56, s: 56 }, { e: '🧒', x: 40, y: 78, s: 50 }] },
   { bg: 'village', time: 'night', items: [{ e: '🏡', x: 30, y: 60, s: 60 }, { e: '🌙', x: 80, y: 20, s: 36 }] },
-  { bg: 'paper', time: 'day', items: [{ map: 'sylhet', x: 30, y: 52, w: 120 }, { t: '1947', x: 72, y: 56, s: 54, c: '#B03A2E' }] },
+  { bg: 'desert', time: 'evening', items: [{ e: '🐫', x: 34, y: 70, s: 70 }, { e: '☕', x: 66, y: 80, s: 40 }, { e: '🌴', x: 86, y: 58, s: 56 }] },
+  { bg: 'paper', time: 'day', items: [{ map: 'nile', x: 50, y: 56, w: 300 }, { t: '762', x: 50, y: 16, s: 40, c: '#2F7FB5' }] },
 ]
 
 // every emoji the Playbook asks for, so anything still without a drawing shows up here
@@ -38,7 +39,7 @@ const ALL = [
   ...youngBooks.map((b) => ({ group: `5–7 · ${b.title.en}`, pages: b.pages })),
   ...olderBooks.map((b) => ({ group: `8–15 · ${b.title.en}`, pages: b.pages })),
   ...Object.entries(regionStoryboards).map(([k, b]) => ({ group: `Storyboard · ${k}`, pages: b.panels })),
-  { group: 'Timeline 1905–1971', pages: timelineStory.panels },
+  { group: 'Timeline 622–1971', pages: timelineStory.panels },
 ]
 
 export default function ArtGallery() {

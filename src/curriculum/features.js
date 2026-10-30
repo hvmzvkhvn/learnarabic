@@ -12,7 +12,7 @@
 //   blitzSeconds  length of a Word Blitz round (0 = no timed games)
 //   explore       the Explore map of the Arab world (13+)
 //   playbook      the Playbook tab: picture books, Look & Learn, Build the scene (all ages)
-//   storyboards   division storyboards on Explore + the 1905–1971 timeline (16+)
+//   storyboards   region storyboards on Explore + the 622–1971 history timeline (16+)
 //   trace         what gets traced: letters ('all' | n), signs, syllables, words (n per lesson), digits
 export const FEATURES = {
   young: {

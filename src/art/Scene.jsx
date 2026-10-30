@@ -4,10 +4,10 @@ import { scaleFor, spriteFor } from './sprites'
 // A tiny illustration engine: a painted backdrop (sky, hills, river, room…) plus emoji "actors" and props placed
 // on it. Scenes are plain data, so a whole picture book is just a list of { scene, text } pages.
 //
-//   scene = { bg: 'village', time: 'day' | 'evening' | 'night' | 'rain', items: [ … ], noLuminary?: true (no painted sun / moon, when a sun or moon is an item) }
+//   scene = { bg: 'village' (or room kitchen classroom market river sea city hills desert paper meadow), time: 'day' | 'evening' | 'night' | 'rain', items: [ … ], noLuminary?: true (no painted sun / moon, when a sun or moon is an item) }
 //   item  = { e: '🏠', x: 20, y: 62, s: 56, flip?, anim?: 'bob'|'sway'|'drift'|'pulse', shadow?: false, z?: n }
 //         | { t: '1947', x, y, s, c?: colour, w?: weight }            (big text)
-//         | { map: 'sylhet', x, y, w }                                (the Explore map, one region highlighted)
+//         | { map: 'nile', x, y, w }                                (the Explore map, one region highlighted)
 //   x and y are percentages of the picture; s is the emoji size in picture units (the picture is 400 × 260).
 const W = 400
 const H = 260
@@ -216,6 +216,20 @@ function Backdrop({ bg, time, id, lum = true }) {
           <ellipse cx="200" cy="124" rx="220" ry="14" fill="#fff" opacity=".28" />
         </>
       )
+    case 'desert': {
+      const night = time === 'night'
+      return (
+        <>
+          <Sky time={time} id={id} lum={lum} />
+          <path d={`M0 150 Q70 118 150 146 T300 136 T400 142 V${H} H0 Z`} fill={night ? '#8A7356' : '#E9C27A'} />
+          <path d={`M0 182 Q100 150 210 178 T400 168 V${H} H0 Z`} fill={night ? '#7A6448' : '#DDAE62'} />
+          <path d={`M0 214 Q130 188 260 210 T400 204 V${H} H0 Z`} fill={night ? '#6B5740' : '#CF9C4E'} />
+          {Array.from({ length: 7 }).map((_, i) => (
+            <path key={i} d={`M${10 + i * 58} ${226 + (i % 2) * 10} q14 -6 28 0`} stroke={night ? '#5A4836' : '#B9853E'} strokeWidth="2" fill="none" opacity=".6" />
+          ))}
+        </>
+      )
+    }
     case 'paper':
       return (
         <>
