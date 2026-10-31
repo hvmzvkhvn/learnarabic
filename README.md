@@ -94,4 +94,4 @@ No audio has been generated yet; until it is, the app uses the browser's Arabic 
 
 ## Deploy
 
-`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`, served from `https://<user>.github.io/learnarabic/` (set the `VITE_BASE` repository variable to `/` once there is a custom domain).
+`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`, served at https://learnarabic.dev (`public/CNAME`). To serve from `https://<user>.github.io/learnarabic/` instead, remove the CNAME and set the `VITE_BASE` repository variable to `/learnarabic/`.

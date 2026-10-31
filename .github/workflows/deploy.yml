@@ -27,8 +27,8 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          # served from https://<user>.github.io/learnarabic/ until a custom domain is set up (then set VITE_BASE to /)
-          VITE_BASE: ${{ vars.VITE_BASE || '/learnarabic/' }}
+          # served from the root of https://learnarabic.dev (set VITE_BASE to /learnarabic/ to serve from github.io instead)
+          VITE_BASE: ${{ vars.VITE_BASE || '/' }}
       # GitHub Pages has no rewrites: serving the app as the 404 page lets deep links
       # (/alphabet, /lesson/...) open the single-page app on refresh.
       - run: cp dist/index.html dist/404.html
